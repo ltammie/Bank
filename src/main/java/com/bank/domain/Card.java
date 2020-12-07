@@ -1,8 +1,9 @@
 package com.bank.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Card {
+public class Card implements Serializable {
 	private Long cardNumber;
 	private Integer accountId;
 	private Integer clientId;

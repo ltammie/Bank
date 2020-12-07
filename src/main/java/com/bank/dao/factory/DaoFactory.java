@@ -4,15 +4,10 @@ import com.bank.dao.AccountDao;
 import com.bank.dao.CardDao;
 import com.bank.dao.ClientDao;
 
-public abstract class DaoFactory {
-	private static final int H2 = 1;
+public abstract class DaoFactory<E> {
+	public static final int H2 = 1;
 
-	public abstract ClientDao getCustomerDAO();
-
-	public abstract AccountDao getAccountDAO();
-
-	public abstract CardDao getOrderDAO();
-
+	public abstract ClientDao getClientDao();
 
 	public static DaoFactory getDaoFactory(int whichFactory) {
 		switch (whichFactory) {

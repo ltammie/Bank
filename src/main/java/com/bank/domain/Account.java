@@ -1,6 +1,8 @@
 package com.bank.domain;
 
-public class Account {
+import java.io.Serializable;
+
+public class Account implements Serializable {
 	private Long id;
 	private Integer clientId;
 	private Long balance;

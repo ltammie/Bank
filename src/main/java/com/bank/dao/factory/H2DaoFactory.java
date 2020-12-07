@@ -1,25 +1,30 @@
 package com.bank.dao.factory;
 
-import com.bank.dao.AccountDao;
-import com.bank.dao.CardDao;
-import com.bank.dao.ClientDao;
-import com.zaxxer.hikari.HikariConfig;
-import com.zaxxer.hikari.HikariDataSource;
-import org.apache.log4j.Logger;
-
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.Properties;
 
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+
+import com.bank.dao.ClientDao;
+import com.bank.dao.impl.ClientDaoH2Impl;
+
+
+
 public class H2DaoFactory extends DaoFactory{
-	private static final Logger Log = Logger.getLogger(H2DaoFactory.class.getName() );
+	private static final Logger Log = LogManager.getLogger(H2DaoFactory.class.getName() );
 	private static HikariConfig config = new HikariConfig();
 	private static HikariDataSource ds;
 
 	static {
 		try {
 			Properties properties = new Properties();
-			FileInputStream in = new FileInputStream("/external/configuration/dir/db.properties");
+			FileInputStream in = new FileInputStream("D:\\Bank\\src\\main\\resources\\db.properties");
 			properties.load(in);
 			in.close();
 
@@ -33,18 +38,12 @@ public class H2DaoFactory extends DaoFactory{
 		}
 	}
 
-	@Override
-	public ClientDao getCustomerDAO() {
-		return null;
+	public static Connection getConnection() throws SQLException {
+		return ds.getConnection();
 	}
 
 	@Override
-	public AccountDao getAccountDAO() {
-		return null;
-	}
-
-	@Override
-	public CardDao getOrderDAO() {
-		return null;
+	public ClientDao getClientDao() {
+		return new ClientDaoH2Impl();
 	}
 }

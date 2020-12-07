@@ -45,6 +45,7 @@ public class ClientDaoH2Impl implements ClientDao<Client, Integer> {
 		} catch (SQLException e) {
 			Log.error("error");
 		}
+		return client;
 	}
 
 	@Override

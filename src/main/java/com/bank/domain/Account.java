@@ -3,22 +3,23 @@ package com.bank.domain;
 import java.io.Serializable;
 
 public class Account implements Serializable {
-	private Long id;
+	private Integer id;
 	private Integer clientId;
 	private Long balance;
+	private String accountNumber;
 
-
-	public Account(Long id, Integer clientId, Long balance) {
+	public Account(Integer id, Integer clientId, Long balance, String accountNumber) {
 		this.id = id;
 		this.clientId = clientId;
 		this.balance = balance;
+		this.accountNumber = accountNumber;
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -38,12 +39,21 @@ public class Account implements Serializable {
 		this.balance = balance;
 	}
 
+	public String getAccountNumber() {
+		return accountNumber;
+	}
+
+	public void setAccountNumber(String accountNumber) {
+		this.accountNumber = accountNumber;
+	}
+
 	@Override
 	public String toString() {
 		return "Account{" +
 				"id=" + id +
 				", clientId=" + clientId +
 				", balance=" + balance +
+				", accountNumber='" + accountNumber + '\'' +
 				'}';
 	}
 }

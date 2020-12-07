@@ -4,24 +4,27 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Card implements Serializable {
-	private Long cardNumber;
+	private Integer id;
 	private Integer accountId;
 	private Integer clientId;
 	private Date expirationDate;
+	private String cardNumber;
 
-	public Card(Long cardNumber, Integer accountId, Integer clientId, Date expirationDate) {
-		this.cardNumber = cardNumber;
+
+	public Card(Integer id, Integer accountId, Integer clientId, Date expirationDate, String cardNumber) {
+		this.id = id;
 		this.accountId = accountId;
 		this.clientId = clientId;
 		this.expirationDate = expirationDate;
-	}
-
-	public Long getCardNumber() {
-		return cardNumber;
-	}
-
-	public void setCardNumber(Long cardNumber) {
 		this.cardNumber = cardNumber;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public Integer getAccountId() {
@@ -48,13 +51,22 @@ public class Card implements Serializable {
 		this.expirationDate = expirationDate;
 	}
 
+	public String getCardNumber() {
+		return cardNumber;
+	}
+
+	public void setCardNumber(String cardNumber) {
+		this.cardNumber = cardNumber;
+	}
+
 	@Override
 	public String toString() {
 		return "Card{" +
-				"cardNumber=" + cardNumber +
+				"id=" + id +
 				", accountId=" + accountId +
 				", clientId=" + clientId +
 				", expirationDate=" + expirationDate +
+				", cardNumber='" + cardNumber + '\'' +
 				'}';
 	}
 }

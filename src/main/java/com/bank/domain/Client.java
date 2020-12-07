@@ -3,24 +3,24 @@ package com.bank.domain;
 import java.io.Serializable;
 
 public class Client implements Serializable {
-	private Long id;
+	private Integer id;
 	private String name;
 	private String phoneNumber;
 	private String passport;
 
 
-	public Client(Long id, String name, String phoneNumber, String passport) {
+	public Client(Integer id, String name, String phoneNumber, String passport) {
 		this.id = id;
 		this.name = name;
 		this.phoneNumber = phoneNumber;
 		this.passport = passport;
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

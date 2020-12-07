@@ -1,6 +1,5 @@
 package com.bank.dao.factory;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -24,10 +23,7 @@ public class H2DaoFactory extends DaoFactory{
 	static {
 		try {
 			Properties properties = new Properties();
-			FileInputStream in = new FileInputStream("D:\\Bank\\src\\main\\resources\\db.properties");
-			properties.load(in);
-			in.close();
-
+			properties.load(H2DaoFactory.class.getResourceAsStream("D:\\Bank\\src\\main\\resources\\db.properties"));
 			config.setJdbcUrl(properties.getProperty("db.url"));
 			config.setUsername(properties.getProperty("db.user"));
 			config.setPassword(properties.getProperty("db.password"));

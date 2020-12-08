@@ -19,7 +19,6 @@ public class ClientDaoH2Impl implements ClientDao<Client, Integer> {
 
 	@Override
 	public Client findById(Integer id) throws DaoException {
-		Log.info("Finding Client with id=" +id);
 		String findByIdSql = "select * from client where id = ?";
 		Connection connection = null;
 		PreparedStatement statement = null;
@@ -27,12 +26,9 @@ public class ClientDaoH2Impl implements ClientDao<Client, Integer> {
 		Client client = null;
 
 		try {
-			Log.trace("Get connection");
 			connection = H2DaoFactory.getConnection();
-			Log.trace("Create prepared statement");
 			statement = connection.prepareStatement(findByIdSql);
 			statement.setInt(1, id);
-			Log.trace("Execute query and get result set");
 			resultSet = statement.executeQuery();
 			if (resultSet.next()) {
 				Integer clientId = resultSet.getInt("client_id");
@@ -40,7 +36,6 @@ public class ClientDaoH2Impl implements ClientDao<Client, Integer> {
 				String phone_number = resultSet.getString("phone_number");
 				String passport = resultSet.getString("passport");
 				client = new Client(clientId, name, phone_number, passport);
-				Log.info("Clinet with id="+clientId + " found");
 			}
 		} catch (SQLException e) {
 			Log.error("error");

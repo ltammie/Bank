@@ -20,8 +20,8 @@ public class ClientDaoH2Impl implements ClientDao<Client, Long> {
 	private static Logger Log = LogManager.getLogger(ClientDaoH2Impl.class.getName());
 	private static final String FIND_BY_ID = "select * from clients where client_id = ?";
 	private static final String FIND_ALL = "select * from clients";
-	private static final String SAVE = "INSERT INTO clients (name, phone_number, passport) VALUES (?, ?, ?, ?)";
-	private static final String UPDATE = "UPDATE clients SET name = ?, phone_number = ?, passport = ?, where client_id = ?";
+	private static final String SAVE = "INSERT INTO clients (name, phone_number, passport) VALUES (?, ?, ?)";
+	private static final String UPDATE = "UPDATE clients SET name = ?, phone_number = ?, passport = ? where client_id = ?";
 	private static final String DELETE = "DELETE FROM clients WHERE client_id = ?";
 
 	@Override
@@ -89,10 +89,9 @@ public class ClientDaoH2Impl implements ClientDao<Client, Long> {
 	public void save(Client client) throws DaoException {
 		try (Connection connection = H2DaoFactory.getConnection();
 			 PreparedStatement statement = connection.prepareStatement(SAVE)) {
-			statement.setLong(1, client.getId());
-			statement.setString(2, client.getName());
-			statement.setString(3, client.getPhoneNumber());
-			statement.setString(4, client.getPassport());
+			statement.setString(1, client.getName());
+			statement.setString(2, client.getPhoneNumber());
+			statement.setString(3, client.getPassport());
 			try {
 				statement.executeUpdate();
 				connection.commit();

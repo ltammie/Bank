@@ -4,13 +4,13 @@ import java.util.List;
 import java.util.Optional;
 
 public interface Dao<E, K> {
-	Optional<E> getById(K id);
+	Optional<E> findById(K id) throws DaoException;
 
-	List<E> getAll();
+	List<E> findAll()  throws DaoException;
 
-	void create(E t);
+	boolean save(E e) throws DaoException;
 
-	void update(E t);
+	boolean update(E e) throws DaoException;
 
-	void delete(E t);
+	boolean delete(K id) throws DaoException;
 }

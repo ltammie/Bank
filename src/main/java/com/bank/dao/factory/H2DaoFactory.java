@@ -17,7 +17,7 @@ import com.bank.dao.impl.ClientDaoH2Impl;
 
 public class H2DaoFactory extends DaoFactory{
 	private static final Logger Log = LogManager.getLogger(H2DaoFactory.class.getName() );
-	private static HikariConfig config = new HikariConfig();
+	private static final HikariConfig config = new HikariConfig();
 	private static HikariDataSource ds;
 
 	static {

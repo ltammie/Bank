@@ -6,13 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="e977fcd6-fb3a-4970-9c99-ec23abb80d6e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bank/dao/AccountDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bank/dao/AccountDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bank/dao/CardDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bank/dao/CardDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bank/dao/ClientDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bank/dao/ClientDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/bank/dao/Dao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bank/dao/Dao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bank/dao/DaoException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bank/dao/DaoException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bank/dao/factory/DaoFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bank/dao/factory/DaoFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bank/dao/factory/H2DaoFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bank/dao/factory/H2DaoFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/bank/dao/impl/AccountDaoH2Impl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bank/dao/impl/AccountDaoH2Impl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/bank/dao/impl/CardDaoH2Impl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bank/dao/impl/CardDaoH2Impl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/bank/dao/impl/ClientDaoH2Impl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bank/dao/impl/ClientDaoH2Impl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bank/domain/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bank/models/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bank/domain/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bank/models/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bank/domain/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bank/models/Client.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

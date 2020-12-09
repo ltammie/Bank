@@ -6,30 +6,6 @@ import com.bank.dao.AccountDao;
 import com.bank.dao.DaoException;
 import com.bank.models.Account;
 
-public class AccountDaoH2Impl implements AccountDao<Account, Integer> {
+public class AccountDaoH2Impl  {
 
-	@Override
-	public Account findById(Integer id) throws DaoException {
-		return null;
-	}
-
-	@Override
-	public List<Account> findAll() throws DaoException {
-		return null;
-	}
-
-	@Override
-	public boolean save(Account entity) throws DaoException {
-		return false;
-	}
-
-	@Override
-	public boolean update(Account entity) throws DaoException {
-		return false;
-	}
-
-	@Override
-	public boolean delete(Integer id) throws DaoException {
-		return false;
-	}
 }

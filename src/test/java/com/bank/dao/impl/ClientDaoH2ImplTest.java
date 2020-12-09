@@ -1,10 +1,13 @@
 package com.bank.dao.impl;
 
+import com.bank.dao.ClientDao;
+import com.bank.dao.Dao;
+import com.bank.dao.DaoException;
+import com.bank.dao.factory.DaoFactory;
 import com.bank.dao.factory.H2DaoFactory;
+import com.bank.models.Client;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
-import org.dbunit.DBTestCase;
-import org.dbunit.dataset.IDataSet;
 import org.h2.tools.RunScript;
 import org.junit.jupiter.api.*;
 
@@ -14,10 +17,13 @@ import java.io.IOException;
 import java.io.Reader;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.Optional;
 import java.util.Properties;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class ClientDaoH2ImplTest extends DBTestCase {
+
+class ClientDaoH2ImplTest {
 	private static DataSource ds;
 
 	@BeforeAll
@@ -47,12 +53,15 @@ class ClientDaoH2ImplTest extends DBTestCase {
 	}
 
 	@Test
-	void findById() {
-
+	void findById_Test() throws DaoException {
+		DaoFactory daoFactory = DaoFactory.getDaoFactory(DaoFactory.H2);
+		assert daoFactory != null;
+		ClientDaoH2Impl dao = (ClientDaoH2Impl)daoFactory.getClientDao();
+		Client client = dao.findById(1L);
+		assertEquals(1L, client.getId());
+		assertEquals("John", client.getName());
+		assertEquals("1-222-333-44-55", client.getPhoneNumber());
+		assertEquals("1234321123", client.getPassport());
 	}
 
-	@Override
-	protected IDataSet getDataSet() throws Exception {
-		return null;
-	}
 }

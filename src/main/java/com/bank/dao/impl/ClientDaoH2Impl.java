@@ -17,10 +17,10 @@ import com.bank.models.Client;
 
 public class ClientDaoH2Impl implements ClientDao<Client, Long>{
 	private static Logger Log = LogManager.getLogger(ClientDaoH2Impl.class.getName());
-	private static final String FIND_BY_ID = "select * from client where id = ?";
+	private static final String FIND_BY_ID = "select * from clients where client_id = ?";
 
 	@Override
-	public Optional<Client> findById(Long id) throws DaoException {
+	public Client findById(Long id) throws DaoException {
 		Client client = null;
 		try (Connection connection = H2DaoFactory.getConnection();
 			PreparedStatement statement = connection.prepareStatement(FIND_BY_ID)) {
@@ -41,7 +41,7 @@ public class ClientDaoH2Impl implements ClientDao<Client, Long>{
 			Log.error("Failed to connect to database", e);
 			throw new DaoException(e.getMessage(), e);
 		}
-		return Optional.ofNullable(client);
+		return client;
 	}
 
 	@Override

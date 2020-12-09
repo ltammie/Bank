@@ -11,7 +11,6 @@ import com.zaxxer.hikari.HikariDataSource;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
-import com.bank.dao.ClientDao;
 import com.bank.dao.impl.ClientDaoH2Impl;
 
 public class H2DaoFactory extends DaoFactory{
@@ -38,7 +37,7 @@ public class H2DaoFactory extends DaoFactory{
 	}
 
 	@Override
-	public ClientDao getClientDao() {
+	public ClientDaoH2Impl getClientDao() {
 		return new ClientDaoH2Impl();
 	}
 }

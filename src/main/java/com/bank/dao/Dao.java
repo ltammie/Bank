@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface Dao<E, K> {
-	Optional<E> findById(K id) throws DaoException;
+	E findById(K id) throws DaoException;
 
 	List<E> findAll()  throws DaoException;
 

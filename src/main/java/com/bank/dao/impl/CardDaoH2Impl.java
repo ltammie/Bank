@@ -11,7 +11,6 @@ import java.util.List;
 import com.bank.dao.CardDao;
 import com.bank.dao.DaoException;
 import com.bank.dao.factory.H2DaoFactory;
-import com.bank.models.Account;
 import com.bank.models.Card;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -35,7 +34,7 @@ public class CardDaoH2Impl implements CardDao<Card, Long>  {
 					Long cardId = resultSet.getLong("card_id");
 					Long accountId = resultSet.getLong("account_id");
 					Long clientId = resultSet.getLong("client_id");
-					Date date = resultSet.getDate("expiration_date");
+					String date = resultSet.getString("expiration_date");
 					String number =resultSet.getString("card_number");
 					card = new Card(cardId, accountId, clientId, date, number);
 				}
@@ -66,7 +65,7 @@ public class CardDaoH2Impl implements CardDao<Card, Long>  {
 					Long cardId = resultSet.getLong("card_id");
 					Long accountId = resultSet.getLong("account_id");
 					Long clientId = resultSet.getLong("client_id");
-					Date date = resultSet.getDate("expiration_date");
+					String date = resultSet.getString("expiration_date");
 					String number = resultSet.getString("card_number");
 					cards.add(new Card(cardId, accountId, clientId, date, number));
 				}
@@ -93,7 +92,7 @@ public class CardDaoH2Impl implements CardDao<Card, Long>  {
 			 PreparedStatement statement = connection.prepareStatement(SAVE)) {
 			statement.setLong(1, card.getAccountId());
 			statement.setLong(2, card.getClientId());
-			statement.setDate(3, (java.sql.Date)card.getExpirationDate());
+			statement.setString(3, card.getExpirationDate());
 			statement.setString(4, card.getCardNumber());
 			try {
 				statement.executeUpdate();
@@ -119,7 +118,7 @@ public class CardDaoH2Impl implements CardDao<Card, Long>  {
 			 PreparedStatement statement = connection.prepareStatement(UPDATE)) {
 			statement.setLong(1, card.getAccountId());
 			statement.setLong(2, card.getClientId());
-			statement.setDate(3, (java.sql.Date)card.getExpirationDate());
+			statement.setString(3, card.getExpirationDate());
 			statement.setString(4, card.getCardNumber());
 			statement.setLong(5, card.getId());
 			try {

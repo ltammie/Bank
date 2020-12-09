@@ -29,7 +29,7 @@ CREATE TABLE cards
  card_id         bigint NOT NULL auto_increment,
  account_id      bigint NOT NULL,
  client_id       bigint NOT NULL,
- expiration_date date NOT NULL,
+ expiration_date varchar(50) NOT NULL,
  card_number     varchar(16) NOT NULL,
  CONSTRAINT PK_card PRIMARY KEY (card_id, account_id, client_id),
  CONSTRAINT FK_20 FOREIGN KEY (account_id, client_id) REFERENCES accounts (account_id, client_id)

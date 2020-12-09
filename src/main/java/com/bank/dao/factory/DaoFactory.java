@@ -1,6 +1,7 @@
 package com.bank.dao.factory;
 
 import com.bank.dao.AccountDao;
+import com.bank.dao.CardDao;
 import com.bank.dao.ClientDao;
 
 public abstract class DaoFactory {
@@ -8,6 +9,7 @@ public abstract class DaoFactory {
 
 	public abstract ClientDao getClientDao();
 	public abstract AccountDao getAccountDao();
+	public abstract CardDao getCardDao();
 
 	public static DaoFactory getDaoFactory(int whichFactory) {
 		switch (whichFactory) {

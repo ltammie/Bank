@@ -1,17 +1,15 @@
 package com.bank.models;
 
-import java.util.Date;
 import java.util.Objects;
 
 public class Card {
 	private Long id;
 	private Long accountId;
 	private Long clientId;
-	private Date expirationDate;
+	private String expirationDate;
 	private String cardNumber;
 
-
-	public Card(Long id, Long accountId, Long clientId, Date expirationDate, String cardNumber) {
+	public Card(Long id, Long accountId, Long clientId, String expirationDate, String cardNumber) {
 		this.id = id;
 		this.accountId = accountId;
 		this.clientId = clientId;
@@ -43,11 +41,11 @@ public class Card {
 		this.clientId = clientId;
 	}
 
-	public Date getExpirationDate() {
+	public String getExpirationDate() {
 		return expirationDate;
 	}
 
-	public void setExpirationDate(Date expirationDate) {
+	public void setExpirationDate(String expirationDate) {
 		this.expirationDate = expirationDate;
 	}
 
@@ -57,17 +55,6 @@ public class Card {
 
 	public void setCardNumber(String cardNumber) {
 		this.cardNumber = cardNumber;
-	}
-
-	@Override
-	public String toString() {
-		return "Card{" +
-				"id=" + id +
-				", accountId=" + accountId +
-				", clientId=" + clientId +
-				", expirationDate=" + expirationDate +
-				", cardNumber='" + cardNumber + '\'' +
-				'}';
 	}
 
 	@Override
@@ -81,5 +68,16 @@ public class Card {
 	@Override
 	public int hashCode() {
 		return Objects.hash(id, accountId, clientId, expirationDate, cardNumber);
+	}
+
+	@Override
+	public String toString() {
+		return "Card{" +
+				"id=" + id +
+				", accountId=" + accountId +
+				", clientId=" + clientId +
+				", expirationDate='" + expirationDate + '\'' +
+				", cardNumber='" + cardNumber + '\'' +
+				'}';
 	}
 }

@@ -1,27 +1,26 @@
-package com.bank.domain;
+package com.bank.models;
 
-import java.io.Serializable;
+import java.util.Objects;
 
-public class Client implements Serializable {
-	private static final long serialVersionUID = 1L;
-	private Integer id;
+public class Client {
+	private Long id;
 	private String name;
 	private String phoneNumber;
 	private String passport;
 
 
-	public Client(Integer id, String name, String phoneNumber, String passport) {
+	public Client(Long id, String name, String phoneNumber, String passport) {
 		this.id = id;
 		this.name = name;
 		this.phoneNumber = phoneNumber;
 		this.passport = passport;
 	}
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -57,5 +56,18 @@ public class Client implements Serializable {
 				", phoneNumber='" + phoneNumber + '\'' +
 				", passport='" + passport + '\'' +
 				'}';
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Client client = (Client) o;
+		return id.equals(client.id) && name.equals(client.name) && phoneNumber.equals(client.phoneNumber) && passport.equals(client.passport);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id, name, phoneNumber, passport);
 	}
 }

@@ -12,13 +12,13 @@ import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
 import com.bank.dao.DaoException;
-import com.bank.domain.Client;
+import com.bank.models.Client;
 
 public class ClientDaoH2Impl implements ClientDao<Client, Integer> {
 	private static Logger Log = LogManager.getLogger(ClientDaoH2Impl.class.getName());
 
 	@Override
-	public Client findById(Integer id) throws DaoException {
+	public Client findById(Long id) throws DaoException {
 		String findByIdSql = "select * from client where id = ?";
 		Connection connection = null;
 		PreparedStatement statement = null;
@@ -28,10 +28,10 @@ public class ClientDaoH2Impl implements ClientDao<Client, Integer> {
 		try {
 			connection = H2DaoFactory.getConnection();
 			statement = connection.prepareStatement(findByIdSql);
-			statement.setInt(1, id);
+			statement.setLong(1, id);
 			resultSet = statement.executeQuery();
 			if (resultSet.next()) {
-				Integer clientId = resultSet.getInt("client_id");
+				Long clientId = resultSet.getLong("client_id");
 				String name = resultSet.getString("name");
 				String phone_number = resultSet.getString("phone_number");
 				String passport = resultSet.getString("passport");

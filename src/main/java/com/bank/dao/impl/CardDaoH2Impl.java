@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.bank.dao.CardDao;
 import com.bank.dao.DaoException;
-import com.bank.domain.Card;
+import com.bank.models.Card;
 
 public class CardDaoH2Impl implements CardDao<Card, Integer> {
 

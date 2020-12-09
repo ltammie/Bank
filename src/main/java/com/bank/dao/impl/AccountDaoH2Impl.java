@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.bank.dao.AccountDao;
 import com.bank.dao.DaoException;
-import com.bank.domain.Account;
+import com.bank.models.Account;
 
 public class AccountDaoH2Impl implements AccountDao<Account, Integer> {
 

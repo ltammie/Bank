@@ -1,17 +1,17 @@
-package com.bank.domain;
+package com.bank.models;
 
-import java.io.Serializable;
 import java.util.Date;
+import java.util.Objects;
 
-public class Card implements Serializable {
-	private Integer id;
-	private Integer accountId;
-	private Integer clientId;
+public class Card {
+	private Long id;
+	private Long accountId;
+	private Long clientId;
 	private Date expirationDate;
 	private String cardNumber;
 
 
-	public Card(Integer id, Integer accountId, Integer clientId, Date expirationDate, String cardNumber) {
+	public Card(Long id, Long accountId, Long clientId, Date expirationDate, String cardNumber) {
 		this.id = id;
 		this.accountId = accountId;
 		this.clientId = clientId;
@@ -19,27 +19,27 @@ public class Card implements Serializable {
 		this.cardNumber = cardNumber;
 	}
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public Integer getAccountId() {
+	public Long getAccountId() {
 		return accountId;
 	}
 
-	public void setAccountId(Integer accountId) {
+	public void setAccountId(Long accountId) {
 		this.accountId = accountId;
 	}
 
-	public Integer getClientId() {
+	public Long getClientId() {
 		return clientId;
 	}
 
-	public void setClientId(Integer clientId) {
+	public void setClientId(Long clientId) {
 		this.clientId = clientId;
 	}
 
@@ -68,5 +68,18 @@ public class Card implements Serializable {
 				", expirationDate=" + expirationDate +
 				", cardNumber='" + cardNumber + '\'' +
 				'}';
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Card card = (Card) o;
+		return id.equals(card.id) && accountId.equals(card.accountId) && clientId.equals(card.clientId) && expirationDate.equals(card.expirationDate) && cardNumber.equals(card.cardNumber);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id, accountId, clientId, expirationDate, cardNumber);
 	}
 }

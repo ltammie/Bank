@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Optional;
 
 import com.bank.dao.ClientDao;
 import com.bank.dao.factory.H2DaoFactory;
@@ -17,7 +16,7 @@ import com.bank.dao.DaoException;
 import com.bank.models.Client;
 
 public class ClientDaoH2Impl implements ClientDao<Client, Long> {
-	private static Logger Log = LogManager.getLogger(ClientDaoH2Impl.class.getName());
+	private static final Logger Log = LogManager.getLogger(ClientDaoH2Impl.class.getName());
 	private static final String FIND_BY_ID = "select * from clients where client_id = ?";
 	private static final String FIND_ALL = "select * from clients";
 	private static final String SAVE = "INSERT INTO clients (name, phone_number, passport) VALUES (?, ?, ?)";

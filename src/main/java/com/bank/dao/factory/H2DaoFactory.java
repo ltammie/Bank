@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Properties;
 
+import com.bank.dao.impl.AccountDaoH2Impl;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import org.apache.logging.log4j.Logger;
@@ -40,5 +41,10 @@ public class H2DaoFactory extends DaoFactory{
 	@Override
 	public ClientDaoH2Impl getClientDao() {
 		return new ClientDaoH2Impl();
+	}
+
+	@Override
+	public AccountDaoH2Impl getAccountDao() {
+		return new AccountDaoH2Impl();
 	}
 }

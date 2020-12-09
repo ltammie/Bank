@@ -33,9 +33,12 @@ public class ClientDaoH2Impl implements ClientDao<Client, Long>{
 					String passport = resultSet.getString("passport");
 					client = new Client(clientId, name, phone_number, passport);
 				}
+			} catch (SQLException e){
+				Log.error("Failed to read from result set", e);
+				throw new DaoException(e.getMessage(), e);
 			}
 		} catch (SQLException e) {
-			Log.error("error");
+			Log.error("Failed to connect to database", e);
 			throw new DaoException(e.getMessage(), e);
 		}
 		return Optional.ofNullable(client);

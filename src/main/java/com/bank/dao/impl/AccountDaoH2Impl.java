@@ -39,7 +39,7 @@ public class AccountDaoH2Impl implements AccountDao<Account, Long> {
 				}
 				connection.commit();
 			} catch (SQLException e) {
-				Log.error("Failed to find count by id=" + id, e);
+				Log.error("Failed to find account by id=" + id, e);
 				try {
 					connection.rollback();
 				} catch (SQLException ex) {
@@ -48,7 +48,7 @@ public class AccountDaoH2Impl implements AccountDao<Account, Long> {
 				throw new DaoException(e.getMessage(), e);
 			}
 		} catch (SQLException e) {
-			Log.error("Failed to connect to database when finding count with id=" + id, e);
+			Log.error("Failed to connect to database when finding account with id=" + id, e);
 			throw new DaoException(e.getMessage(), e);
 		}
 		return account;
@@ -65,7 +65,7 @@ public class AccountDaoH2Impl implements AccountDao<Account, Long> {
 					Long clientId = resultSet.getLong("client_id");
 					Long balance = resultSet.getLong("balance");
 					String number =resultSet.getString("account_number");
-					accounts.add( new Account(accountId, clientId, balance, number));
+					accounts.add(new Account(accountId, clientId, balance, number));
 				}
 				connection.commit();
 			} catch (SQLException e) {
@@ -157,5 +157,4 @@ public class AccountDaoH2Impl implements AccountDao<Account, Long> {
 			throw new DaoException(e.getMessage(), e);
 		}
 	}
-
 }

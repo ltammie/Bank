@@ -26,6 +26,7 @@ public class H2DaoFactory extends DaoFactory{
 			config.setUsername(properties.getProperty("db.user"));
 			config.setPassword(properties.getProperty("db.password"));
 			config.setDriverClassName(properties.getProperty("db.driver.name"));
+			config.setAutoCommit(false);
 			ds = new HikariDataSource(config);
 		} catch (Exception e) {
 			Log.error("Failed to load database properties file!", e);

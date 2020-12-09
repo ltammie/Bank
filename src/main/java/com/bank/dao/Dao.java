@@ -8,9 +8,9 @@ public interface Dao<E, K> {
 
 	List<E> findAll()  throws DaoException;
 
-	boolean save(E e) throws DaoException;
+	void save(E e) throws DaoException;
 
-	boolean update(E e) throws DaoException;
+	void update(E e) throws DaoException;
 
-	boolean delete(K id) throws DaoException;
+	void delete(K id) throws DaoException;
 }

@@ -1,7 +1,5 @@
 package com.bank.dao.impl;
 
-import com.bank.dao.ClientDao;
-import com.bank.dao.Dao;
 import com.bank.dao.DaoException;
 import com.bank.dao.factory.DaoFactory;
 import com.bank.dao.factory.H2DaoFactory;
@@ -17,7 +15,6 @@ import java.io.IOException;
 import java.io.Reader;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.Optional;
 import java.util.Properties;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -57,11 +54,18 @@ class ClientDaoH2ImplTest {
 		DaoFactory daoFactory = DaoFactory.getDaoFactory(DaoFactory.H2);
 		assert daoFactory != null;
 		ClientDaoH2Impl dao = (ClientDaoH2Impl)daoFactory.getClientDao();
-		Client client = dao.findById(1L);
-		assertEquals(1L, client.getId());
-		assertEquals("John", client.getName());
-		assertEquals("1-222-333-44-55", client.getPhoneNumber());
-		assertEquals("1234321123", client.getPassport());
+
+		Client test = new Client(1L, "John Wick", "8-800-555-35-35", "4132532543");
+		dao.save(test);
+		assertEquals(test, dao.findById(1L));
 	}
 
+
+//	@Test
+//	void findAll_Test() throws DaoException {
+//		DaoFactory daoFactory = DaoFactory.getDaoFactory(DaoFactory.H2);
+//		assert daoFactory != null;
+//		ClientDaoH2Impl dao = (ClientDaoH2Impl)daoFactory.getClientDao();
+//		Client client = dao.findById(1L);
+//	}
 }

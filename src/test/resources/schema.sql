@@ -40,7 +40,3 @@ CREATE INDEX fkIdx_20 ON cards
  account_id,
  client_id
 );
-
-INSERT INTO clients (name, phone_number, passport) VALUES
-('John', '1-222-333-44-55', '1234321123'),
-('Maria', '5-444-333-22-11', '4321123321');

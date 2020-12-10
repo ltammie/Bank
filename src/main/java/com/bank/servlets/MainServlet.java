@@ -1,31 +1,25 @@
-package com.bank;
+package com.bank.servlets;
 
-import com.alibaba.fastjson.JSON;
-
-import com.bank.dao.CardDao;
-import com.bank.dao.ClientDao;
-import com.bank.dao.Dao;
-import com.bank.dao.DaoException;
-import com.bank.dao.factory.DaoFactory;
-import com.bank.dao.impl.AccountDaoH2Impl;
-import com.bank.dao.impl.CardDaoH2Impl;
-import com.bank.dao.impl.ClientDaoH2Impl;
-import com.bank.models.Account;
-import com.bank.models.Card;
-import com.bank.models.Client;
-import com.sun.net.httpserver.HttpExchange;
-import com.sun.net.httpserver.HttpHandler;
-import com.sun.net.httpserver.HttpServer;
-
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.OutputStream;
-import java.net.InetSocketAddress;
-import java.util.Date;
+import java.io.PrintWriter;
+
+@WebServlet("/test")
+public class MainServlet extends HttpServlet{
 
 
-//localhost:port
-public class App {
-	public static void main(String[] args) throws IOException {
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		resp.setContentType("text/html");
+		PrintWriter printWriter = resp.getWriter();
+		printWriter.write("Hello!");
+		printWriter.close();
+	}
+}
+
 //		DaoFactory daoFactory = DaoFactory.getDaoFactory(DaoFactory.H2);
 //		ClientDaoH2Impl clientDao = (ClientDaoH2Impl) daoFactory.getClientDao();
 //		AccountDaoH2Impl accountDao = (AccountDaoH2Impl) daoFactory.getAccountDao();
@@ -52,28 +46,3 @@ public class App {
 //		} catch (DaoException e) {
 //			e.printStackTrace();
 //		}
-
-//		HttpServer server = HttpServer.create(new InetSocketAddress(8001), 0);
-//		server.createContext("/test", new MyHandler());
-//		server.setExecutor(null); // creates a default executor
-//		server.start();
-		Client client = new Client(1L, "John Wick", "8-800-555-35-35", "4132532543");
-		String jsonString = JSON.toJSONString(client);
-		System.out.println(jsonString);
-		Client client1 = JSON.parseObject(jsonString, Client.class);
-		System.out.println(client1.toString());
-	}
-
-	static class MyHandler implements HttpHandler {
-		@Override
-		public void handle(HttpExchange t) throws IOException {
-//			String response =
-//}
-//			t.sendResponseHeaders(200, response.length());
-//			OutputStream os = t.getResponseBody();
-//			byte[] jsonBytes = json.getBytes("UTF-8");
-//			os.write(jsonBytes);
-//			os.close();
-		}
-	}
-}

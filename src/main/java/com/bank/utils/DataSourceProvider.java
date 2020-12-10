@@ -14,13 +14,13 @@ public class DataSourceProvider {
 
 	static {
 		try {
-			Properties properties = new Properties();
-			properties.load(DataSourceProvider.class.getResourceAsStream("/WEB-INF/classes/db.properties"));
+//			Properties properties = new Properties();
+//			properties.load(DataSourceProvider.class.getResourceAsStream("WEB-INF/classes/db.properties"));
 			HikariConfig config = new HikariConfig();
-			config.setJdbcUrl(properties.getProperty("db.url"));
-			config.setUsername(properties.getProperty("db.user"));
-			config.setPassword(properties.getProperty("db.password"));
-			config.setDriverClassName(properties.getProperty("db.driver.name"));
+			config.setJdbcUrl("jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;INIT=runscript from 'classpath:/schema.sql';MODE=PostgreSQL;");
+			config.setUsername("sa");
+			config.setPassword("password");
+			config.setDriverClassName("org.h2.Driver");
 			config.setAutoCommit(false);
 			dataSource = new HikariDataSource(config);
 		} catch (Exception e) {

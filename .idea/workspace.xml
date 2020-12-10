@@ -6,13 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="e977fcd6-fb3a-4970-9c99-ec23abb80d6e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bank/dao/factory/H2DaoFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bank/dao/factory/H2DaoFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bank/servlets/MainServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bank/servlets/MainServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/cards_list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/cards_list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/submit_result.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/submit_result.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/db.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bank/dao/factory/DaoFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bank/dao/factory/H2DaoFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bank/dao/impl/AccountDaoH2Impl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bank/dao/impl/AccountDaoH2Impl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bank/dao/impl/CardDaoH2Impl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bank/dao/impl/CardDaoH2Impl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bank/dao/impl/ClientDaoH2Impl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bank/dao/impl/ClientDaoH2Impl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,8 +21,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -67,7 +65,7 @@
       <recent name="com.bank.dao.impl" />
     </key>
   </component>
-  <component name="RunManager" selected="Smart Tomcat.BankServlet">
+  <component name="RunManager" selected="JUnit.ClientDaoH2ImplTest">
     <configuration name="App" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.bank.App" />
       <module name="Bank" />
@@ -244,9 +242,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ClientDaoH2ImplTest" />
         <item itemvalue="JUnit.AccountServiceImplTest" />
         <item itemvalue="JUnit.CardDaoH2ImplTest" />
-        <item itemvalue="JUnit.ClientDaoH2ImplTest" />
         <item itemvalue="JUnit.AccountDaoH2ImplTest" />
         <item itemvalue="JUnit.AccountServiceImplTest.depositMoney" />
       </list>

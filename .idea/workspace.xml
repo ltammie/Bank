@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="e977fcd6-fb3a-4970-9c99-ec23abb80d6e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bank/utils/DataSourceProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bank/utils/DataSourceProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bank/servlets/MainServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bank/servlets/MainServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/submit_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/html/submit_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/submit_form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/submit_form.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +45,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
@@ -54,6 +58,8 @@
       <recent name="" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Bank\src\main\webapp\jsp" />
+      <recent name="D:\Bank\src\main\webapp\html" />
       <recent name="D:\Bank\src\main\webapp" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
@@ -214,12 +220,19 @@
     </configuration>
     <configuration default="true" type="com.poratu.idea.plugins.tomcat" factoryName="SMART_TOMCAT_FACTORY">
       <option name="adminPort" value="8005" />
-      <option name="contextPath" />
-      <option name="docBase" />
+      <option name="contextPath" value="/Bank" />
+      <option name="docBase" value="$PROJECT_DIR$/src/main/webapp" />
       <option name="envOptions" />
       <option name="passParentEnvironmentVariables" value="true" />
       <option name="port" value="8080" />
-      <option name="tomcatInfo" />
+      <option name="tomcatInfo">
+        <TomcatInfo>
+          <option name="name" value="Apache Tomcat/9.0.41" />
+          <option name="number" value="0" />
+          <option name="path" value="C:\DevPorgrams\apache-tomcat-9" />
+          <option name="version" value="9.0.41.0" />
+        </TomcatInfo>
+      </option>
       <option name="vmOptions" />
       <method v="2">
         <option name="Make" enabled="true" />

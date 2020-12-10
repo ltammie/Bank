@@ -2,9 +2,4 @@
 <web-app>
   <display-name>Bank Web Service</display-name>
 
-  <context-param>
-    <param-name>message</param-name>
-    <param-value>Hello Servlets</param-value>
-  </context-param>
-
 </web-app>

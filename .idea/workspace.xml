@@ -6,12 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="e977fcd6-fb3a-4970-9c99-ec23abb80d6e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/bank/dao/factory/H2DaoFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bank/dao/factory/H2DaoFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bank/service/AccountServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bank/service/AccountServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/bank/servlets/MainServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bank/servlets/MainServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/schema.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/cards_list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/cards_list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/cards_list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/cards_list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/submit_result.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/submit_result.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/db.properties" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +59,9 @@
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Bank\src\main\webapp" />
+    </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="com.bank.service" />
       <recent name="com.bank.dao.impl" />
@@ -67,6 +71,21 @@
     <configuration name="App" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.bank.App" />
       <module name="Bank" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AccountDaoH2ImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Bank" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.bank.dao.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.bank.dao.impl" />
+      <option name="MAIN_CLASS_NAME" value="com.bank.dao.impl.AccountDaoH2ImplTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -111,7 +130,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CardDaoH2ImplTest.findByAccountId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ClientDaoH2ImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Bank" />
       <extension name="coverage">
         <pattern>
@@ -120,25 +139,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.bank.dao.impl" />
-      <option name="MAIN_CLASS_NAME" value="com.bank.dao.impl.CardDaoH2ImplTest" />
-      <option name="METHOD_NAME" value="findByAccountId" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CardDaoH2ImplTest.save" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Bank" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.bank.dao.impl.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.bank.dao.impl" />
-      <option name="MAIN_CLASS_NAME" value="com.bank.dao.impl.CardDaoH2ImplTest" />
-      <option name="METHOD_NAME" value="save" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="com.bank.dao.impl.ClientDaoH2ImplTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -231,22 +233,22 @@
     </configuration>
     <list>
       <item itemvalue="Application.App" />
-      <item itemvalue="JUnit.CardDaoH2ImplTest" />
-      <item itemvalue="JUnit.CardDaoH2ImplTest.save" />
-      <item itemvalue="JUnit.CardDaoH2ImplTest.findByAccountId" />
       <item itemvalue="JUnit.AccountServiceImplTest" />
       <item itemvalue="JUnit.AccountServiceImplTest.depositMoney" />
       <item itemvalue="Maven.Bank [test]" />
       <item itemvalue="Maven.Bank [clean,compile]" />
       <item itemvalue="Smart Tomcat.BankServlet" />
+      <item itemvalue="JUnit.AccountDaoH2ImplTest" />
+      <item itemvalue="JUnit.ClientDaoH2ImplTest" />
+      <item itemvalue="JUnit.CardDaoH2ImplTest" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.AccountServiceImplTest" />
-        <item itemvalue="JUnit.AccountServiceImplTest.depositMoney" />
-        <item itemvalue="JUnit.CardDaoH2ImplTest.findByAccountId" />
         <item itemvalue="JUnit.CardDaoH2ImplTest" />
-        <item itemvalue="JUnit.CardDaoH2ImplTest.save" />
+        <item itemvalue="JUnit.ClientDaoH2ImplTest" />
+        <item itemvalue="JUnit.AccountDaoH2ImplTest" />
+        <item itemvalue="JUnit.AccountServiceImplTest.depositMoney" />
       </list>
     </recent_temporary>
   </component>

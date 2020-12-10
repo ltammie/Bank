@@ -23,7 +23,7 @@ public class H2DaoFactory extends DaoFactory{
 	static {
 		try {
 			Properties properties = new Properties();
-			properties.load(H2DaoFactory.class.getResourceAsStream("/WEB_INF/web.xml"));
+			properties.load(H2DaoFactory.class.getResourceAsStream("/WEB-INF/classes/db.properties"));
 			config.setJdbcUrl(properties.getProperty("db.url"));
 			config.setUsername(properties.getProperty("db.user"));
 			config.setPassword(properties.getProperty("db.password"));

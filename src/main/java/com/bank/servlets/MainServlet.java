@@ -1,5 +1,6 @@
 package com.bank.servlets;
 
+import com.bank.models.Account;
 import com.bank.service.AccountServiceException;
 import com.bank.service.AccountServiceImpl;
 
@@ -18,27 +19,18 @@ import java.io.PrintWriter;
 
 @WebServlet("/cards")
 public class MainServlet extends HttpServlet {
-//	private AccountServiceImpl accountService = null;
+	private AccountServiceImpl accountService = null;
 
-//	public void init() throws ServletException {
-//		String param = getInitParameter("kek");
-//		System.out.println("param = ");
-//	}
-//
-//	private void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, AccountServiceException {
-//		request.setAttribute("cards", accountService.getAllCards(3L));
-//		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/cards_list.jsp");
-//		dispatcher.forward(request, response);
-//	}
+	public void init() throws ServletException {
+		accountService = new AccountServiceImpl();
+	}
+
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html");
-		PrintWriter writer = response.getWriter();
-		try {
-			writer.println("<h2>Hello from HelloServlet</h2>");
-		} finally {
-			writer.close();
-		}
+		String path = "/submit_form.html";
+		ServletContext servletContext = getServletContext();
+		RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher(path);
+		requestDispatcher.forward(request, response);
 	}
 
 	@Override
@@ -46,8 +38,10 @@ public class MainServlet extends HttpServlet {
 		resp.setContentType("text/html");
 
 		try (PrintWriter writer = resp.getWriter()) {
-			String id = req.getParameter("account_id");
-			writer.println("<p>id: " + id + "</p>");
+			Account account = accountService.getBalance(Long.parseLong(req.getParameter("account_id")));
+			writer.println("<p>balance: " + account.getBalance() + "</p>");
+		} catch (AccountServiceException e) {
+			System.out.println("server error");
 		}
 	}
 }

@@ -3,12 +3,14 @@ package com.bank.service;
 import com.bank.dao.AccountDao;
 import com.bank.dao.CardDao;
 import com.bank.dao.DaoException;
-import com.bank.dao.factory.DaoFactory;
+import com.bank.dao.impl.AccountDaoH2Impl;
+import com.bank.dao.impl.CardDaoH2Impl;
 import com.bank.models.Account;
 import com.bank.models.Card;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import javax.sql.DataSource;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -16,11 +18,12 @@ public class AccountServiceImpl implements AccountService<Account, Card, Long> {
 	private static Logger Log;
 	private final AccountDao accountDao;
 	private final CardDao cardDao;
+	private final DataSource ds;
 
-	public AccountServiceImpl() {
-		DaoFactory daoFactory = DaoFactory.getDaoFactory(DaoFactory.H2);
-		accountDao = daoFactory.getAccountDao();
-		cardDao = daoFactory.getCardDao();
+	public AccountServiceImpl(DataSource ds) {
+		this.ds = ds;
+		accountDao = new AccountDaoH2Impl(ds);
+		cardDao = new CardDaoH2Impl(ds);
 		Log  = LogManager.getLogger(AccountServiceImpl.class.getName());
 	}
 

@@ -3,6 +3,7 @@ package com.bank.servlets;
 import com.bank.models.Account;
 import com.bank.service.AccountServiceException;
 import com.bank.service.AccountServiceImpl;
+import com.bank.utils.DataSourceProvider;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
@@ -22,7 +23,7 @@ public class MainServlet extends HttpServlet {
 	private AccountServiceImpl accountService = null;
 
 	public void init() throws ServletException {
-		accountService = new AccountServiceImpl();
+		accountService = new AccountServiceImpl(DataSourceProvider.getDatasource());
 	}
 
 	@Override

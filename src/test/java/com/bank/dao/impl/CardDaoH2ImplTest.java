@@ -1,8 +1,6 @@
 package com.bank.dao.impl;
 
 import com.bank.dao.DaoException;
-import com.bank.dao.factory.DaoFactory;
-import com.bank.dao.factory.H2DaoFactory;
 import com.bank.models.Account;
 import com.bank.models.Card;
 import com.bank.models.Client;
@@ -34,18 +32,16 @@ class CardDaoH2ImplTest {
 	static void init() {
 		try {
 			Properties properties = new Properties();
-			properties.load(H2DaoFactory.class.getResourceAsStream("/db.properties"));
+			properties.load(CardDaoH2ImplTest.class.getResourceAsStream("/db.properties"));
 			HikariConfig config = new HikariConfig();
 			config.setJdbcUrl(properties.getProperty("db.url"));
 			config.setUsername(properties.getProperty("db.user"));
 			config.setPassword(properties.getProperty("db.password"));
 			config.setDriverClassName(properties.getProperty("db.driver.name"));
 			ds = new HikariDataSource(config);
-			DaoFactory daoFactory = DaoFactory.getDaoFactory(DaoFactory.H2);
-			assert daoFactory != null;
-			dao = (CardDaoH2Impl) daoFactory.getCardDao();
-			clientDaoH2 = (ClientDaoH2Impl) daoFactory.getClientDao();
-			accountDaoH2 = (AccountDaoH2Impl) daoFactory.getAccountDao();
+			dao = new CardDaoH2Impl(ds);
+			clientDaoH2 = new ClientDaoH2Impl(ds);
+			accountDaoH2 = new AccountDaoH2Impl(ds);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

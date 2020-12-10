@@ -1,8 +1,6 @@
 package com.bank.dao.impl;
 
 import com.bank.dao.DaoException;
-import com.bank.dao.factory.DaoFactory;
-import com.bank.dao.factory.H2DaoFactory;
 import com.bank.models.Client;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
@@ -30,16 +28,14 @@ class ClientDaoH2ImplTest {
 	static void init() {
 		try {
 			Properties properties = new Properties();
-			properties.load(H2DaoFactory.class.getResourceAsStream("/db.properties"));
+			properties.load(ClientDaoH2ImplTest.class.getResourceAsStream("/db.properties"));
 			HikariConfig config = new HikariConfig();
 			config.setJdbcUrl(properties.getProperty("db.url"));
 			config.setUsername(properties.getProperty("db.user"));
 			config.setPassword(properties.getProperty("db.password"));
 			config.setDriverClassName(properties.getProperty("db.driver.name"));
 			ds = new HikariDataSource(config);
-			DaoFactory daoFactory = DaoFactory.getDaoFactory(DaoFactory.H2);
-			assert daoFactory != null;
-			dao = (ClientDaoH2Impl)daoFactory.getClientDao();
+			dao = new ClientDaoH2Impl(ds);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

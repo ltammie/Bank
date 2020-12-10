@@ -9,7 +9,6 @@ import java.util.List;
 
 import com.bank.dao.AccountDao;
 import com.bank.dao.DaoException;
-import com.bank.dao.factory.H2DaoFactory;
 import com.bank.models.Account;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

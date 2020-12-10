@@ -9,9 +9,5 @@
     <servlet-name>bankServlet</servlet-name>
     <servlet-class>com.bank.servlets.MainServlet</servlet-class>
   </servlet>
-  <servlet-mapping>
-    <servlet-name>bankServlet</servlet-name>
-    <url-pattern>/bank</url-pattern>
-  </servlet-mapping>
 
 </web-app>

@@ -2,32 +2,56 @@ package com.bank.servlets;
 
 import com.alibaba.fastjson.JSON;
 import com.bank.models.Client;
+import com.bank.service.AccountServiceException;
+import com.bank.service.AccountServiceImpl;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet("/test")
-public class MainServlet extends HttpServlet{
+@WebServlet(name = "MainServlet", urlPatterns = "/bank")
+public class MainServlet extends HttpServlet {
+	private AccountServiceImpl accountService = null;
+
+	public void init() {
+		accountService = new AccountServiceImpl();
+	}
+
+	private void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, AccountServiceException {
+		request.setAttribute("cards", accountService.getAllCards(2L));
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/employees.jsp");
+		dispatcher.forward(request, response);
+	}
 
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-		resp.setContentType("/test/get");
-
-		Client client = new Client(1L, "John Wick", "8-800-555-35-35", "4132532543");
-		String jsonString = JSON.toJSONString(client);
-		System.out.println(jsonString);
-		Client client1 = JSON.parseObject(jsonString, Client.class);
-		System.out.println(client1.toString());
-
-		PrintWriter printWriter = resp.getWriter();
-		printWriter.write(jsonString);
-		printWriter.close();
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		HttpSession session = request.getSession();
+		Client client = (Client) session.getAttribute("client");
+		PrintWriter out = response.getWriter();
+		try {
+			if (client == null) {
+				client = new Client(1L, "max", "phone", "passport");
+				session.setAttribute("client", client);
+				out.println("Session data are set");
+			} else {
+				out.println(client.toString());
+				session.removeAttribute("client");
+				out.println(session.getAttribute("client"));
+			}
+		} finally {
+			out.close();
+		}
 	}
 }
+
+//		Client client = new Client(1L, "John Wick", "8-800-555-35-35", "4132532543");
+//		String jsonString = JSON.toJSONString(client);
 
 //		DaoFactory daoFactory = DaoFactory.getDaoFactory(DaoFactory.H2);
 //		ClientDaoH2Impl clientDao = (ClientDaoH2Impl) daoFactory.getClientDao();

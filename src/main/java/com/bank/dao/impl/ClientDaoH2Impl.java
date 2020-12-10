@@ -15,7 +15,7 @@ import org.apache.logging.log4j.LogManager;
 import com.bank.dao.DaoException;
 import com.bank.models.Client;
 
-public class ClientDaoH2Impl implements ClientDao<Client, Long> {
+public class ClientDaoH2Impl implements ClientDao {
 	private static final Logger Log = LogManager.getLogger(ClientDaoH2Impl.class.getName());
 	private static final String FIND_BY_ID = "select * from clients where client_id = ?";
 	private static final String FIND_ALL = "select * from clients";

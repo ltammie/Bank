@@ -1,6 +1,6 @@
 package com.bank.dao;
 
-import java.util.List;
+import com.bank.models.Account;
 
-public interface AccountDao<E, K> extends Dao<E, K>{
+public interface AccountDao extends Dao<Account, Long>{
 }

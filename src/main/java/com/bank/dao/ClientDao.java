@@ -1,5 +1,7 @@
 package com.bank.dao;
 
-public interface ClientDao<E, K> extends Dao<E, K> {
+import com.bank.models.Client;
+
+public interface ClientDao extends Dao<Client, Long> {
 
 }

@@ -15,7 +15,7 @@ import com.bank.models.Card;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class CardDaoH2Impl implements CardDao<Card, Long>  {
+public class CardDaoH2Impl implements CardDao {
 	private static final Logger Log = LogManager.getLogger(ClientDaoH2Impl.class.getName());
 	private static final String FIND_BY_ID = "select * from cards where card_id = ?";
 	private static final String FIND_ALL = "select * from cards";

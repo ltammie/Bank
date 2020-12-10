@@ -14,7 +14,7 @@ import com.bank.models.Account;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class AccountDaoH2Impl implements AccountDao<Account, Long> {
+public class AccountDaoH2Impl implements AccountDao {
 	private static final Logger Log = LogManager.getLogger(ClientDaoH2Impl.class.getName());
 	private static final String FIND_BY_ID = "select * from accounts where account_id = ?";
 	private static final String FIND_ALL = "select * from accounts";

@@ -13,16 +13,17 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class AccountServiceImpl implements AccountService<Account, Card, Long> {
-	private static final Logger Log = LogManager.getLogger(AccountServiceImpl.class.getName());
-	private static final AccountDao accountDao;
-	private static final CardDao cardDao;
+	private static Logger Log;
+	private final AccountDao accountDao;
+	private final CardDao cardDao;
 
-
-	static {
+	public AccountServiceImpl() {
 		DaoFactory daoFactory = DaoFactory.getDaoFactory(DaoFactory.H2);
 		accountDao = daoFactory.getAccountDao();
 		cardDao = daoFactory.getCardDao();
+		Log  = LogManager.getLogger(AccountServiceImpl.class.getName());
 	}
+
 
 	@Override
 	public void createNewCard(Card card) throws AccountServiceException {

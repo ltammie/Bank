@@ -1,51 +1,53 @@
 package com.bank.servlets;
 
-import com.alibaba.fastjson.JSON;
-import com.bank.models.Client;
 import com.bank.service.AccountServiceException;
 import com.bank.service.AccountServiceImpl;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "MainServlet", urlPatterns = "/bank")
+//@WebServlet(name = "MainServlet", urlPatterns = "/bank")
+
+@WebServlet("/cards")
 public class MainServlet extends HttpServlet {
-	private AccountServiceImpl accountService = null;
+//	private AccountServiceImpl accountService = null;
 
-	public void init() {
-		accountService = new AccountServiceImpl();
-	}
-
-	private void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, AccountServiceException {
-		request.setAttribute("cards", accountService.getAllCards(2L));
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/employees.jsp");
-		dispatcher.forward(request, response);
+//	public void init() throws ServletException {
+//		String param = getInitParameter("kek");
+//		System.out.println("param = ");
+//	}
+//
+//	private void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, AccountServiceException {
+//		request.setAttribute("cards", accountService.getAllCards(3L));
+//		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/cards_list.jsp");
+//		dispatcher.forward(request, response);
+//	}
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html");
+		PrintWriter writer = response.getWriter();
+		try {
+			writer.println("<h2>Hello from HelloServlet</h2>");
+		} finally {
+			writer.close();
+		}
 	}
 
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		HttpSession session = request.getSession();
-		Client client = (Client) session.getAttribute("client");
-		PrintWriter out = response.getWriter();
-		try {
-			if (client == null) {
-				client = new Client(1L, "max", "phone", "passport");
-				session.setAttribute("client", client);
-				out.println("Session data are set");
-			} else {
-				out.println(client.toString());
-				session.removeAttribute("client");
-				out.println(session.getAttribute("client"));
-			}
-		} finally {
-			out.close();
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		resp.setContentType("text/html");
+
+		try (PrintWriter writer = resp.getWriter()) {
+			String id = req.getParameter("account_id");
+			writer.println("<p>id: " + id + "</p>");
 		}
 	}
 }

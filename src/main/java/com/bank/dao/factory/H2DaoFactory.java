@@ -23,7 +23,7 @@ public class H2DaoFactory extends DaoFactory{
 	static {
 		try {
 			Properties properties = new Properties();
-			properties.load(H2DaoFactory.class.getResourceAsStream("/db.properties"));
+			properties.load(H2DaoFactory.class.getResourceAsStream("/WEB_INF/web.xml"));
 			config.setJdbcUrl(properties.getProperty("db.url"));
 			config.setUsername(properties.getProperty("db.user"));
 			config.setPassword(properties.getProperty("db.password"));
@@ -32,6 +32,7 @@ public class H2DaoFactory extends DaoFactory{
 			ds = new HikariDataSource(config);
 		} catch (Exception e) {
 			Log.error("Failed to load database properties file!", e);
+			e.printStackTrace();
 		}
 	}
 

@@ -8,6 +8,26 @@
   <servlet>
     <servlet-name>bankServlet</servlet-name>
     <servlet-class>com.bank.servlets.MainServlet</servlet-class>
+    <init-param>
+      <param-name>kek</param-name>
+      <param-value>help</param-value>
+    </init-param>
+    <init-param>
+      <param-name>db.url</param-name>
+      <param-value>jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;INIT=runscript from 'classpath:/schema.sql';MODE=PostgreSQL;</param-value>
+    </init-param>
+    <init-param>
+      <param-name>db.user</param-name>
+      <param-value>sa</param-value>
+    </init-param>
+    <init-param>
+      <param-name>db.password</param-name>
+      <param-value>password</param-value>
+    </init-param>
+    <init-param>
+      <param-name>db.driver.name</param-name>
+      <param-value>org.h2.Driver</param-value>
+    </init-param>
   </servlet>
 
 </web-app>

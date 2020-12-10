@@ -1,8 +1,11 @@
-package com.bank.dao.impl;
+package com.bank.service;
 
 import com.bank.dao.DaoException;
 import com.bank.dao.factory.DaoFactory;
 import com.bank.dao.factory.H2DaoFactory;
+import com.bank.dao.impl.AccountDaoH2Impl;
+import com.bank.dao.impl.CardDaoH2Impl;
+import com.bank.dao.impl.ClientDaoH2Impl;
 import com.bank.models.Account;
 import com.bank.models.Card;
 import com.bank.models.Client;
@@ -20,15 +23,19 @@ import java.io.IOException;
 import java.io.Reader;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.*;
+import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Properties;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class CardDaoH2ImplTest {
+class AccountServiceImplTest {
 	private static DataSource ds;
-	private static CardDaoH2Impl dao;
 	private static ClientDaoH2Impl clientDaoH2;
 	private static AccountDaoH2Impl accountDaoH2;
+	private static CardDaoH2Impl cardDaoH2;
+	private static AccountServiceImpl accountService;
 
 	@BeforeAll
 	static void init() {
@@ -43,9 +50,10 @@ class CardDaoH2ImplTest {
 			ds = new HikariDataSource(config);
 			DaoFactory daoFactory = DaoFactory.getDaoFactory(DaoFactory.H2);
 			assert daoFactory != null;
-			dao = (CardDaoH2Impl) daoFactory.getCardDao();
-			clientDaoH2 = (ClientDaoH2Impl) daoFactory.getClientDao();
+			clientDaoH2 = (ClientDaoH2Impl)daoFactory.getClientDao();
 			accountDaoH2 = (AccountDaoH2Impl) daoFactory.getAccountDao();
+			cardDaoH2 = (CardDaoH2Impl) daoFactory.getCardDao();
+			accountService = new AccountServiceImpl();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -72,60 +80,37 @@ class CardDaoH2ImplTest {
 	}
 
 	@Test
-	void findById() throws DaoException {
-		Card test = new Card(1L, 2L, 2L,  new Date().toString(), "1111222233334444");
-		dao.save(test);
-		assertEquals(test, dao.findById(1L));
+	void createNewCard() throws AccountServiceException {
+		List<Card> cards = new LinkedList<Card>();
+		cards.add(new Card(1L, 3L, 3L,  new Date().toString(), "0000111122223333"));
+		accountService.createNewCard(cards.get(0));
+
+		assertEquals(cards, accountService.getAllCards(3L));
 	}
 
 	@Test
-	void findAll() throws DaoException {
-		List<Card> demos = new LinkedList<>();
-		demos.add(new Card(1L, 1L, 1L,  new Date().toString(), "1111222233334444"));
-		demos.add(new Card(2L, 2L, 2L,  new Date().toString(), "1111000022223333"));
-		demos.add(new Card(3L, 3L, 3L,  new Date().toString(), "0000111122223333"));
-		demos.add(new Card(4L, 4L, 4L,  new Date().toString(), "4444222233331111"));
-		demos.add(new Card(5L, 5L, 5L,  new Date().toString(), "0000222200002222"));
-
-		for (Card demo: demos) {
-			dao.save(demo);
+	void getAllCards() throws AccountServiceException {
+		List<Card> cards = new LinkedList<Card>();
+		cards.add(new Card(1L, 3L, 3L,  new Date().toString(), "0000111122223333"));
+		cards.add(new Card(2L, 3L, 3L,  new Date().toString(), "2222000011114444"));
+		for (Card card: cards) {
+			accountService.createNewCard(card);
 		}
-		assertEquals(demos, dao.findAll());
+		assertEquals(cards, accountService.getAllCards(3L));
 	}
 
 	@Test
-	void save() throws DaoException {
-		Card test = new Card(1L, 2L, 2L,  new Date().toString(), "1111222233334444");
-		dao.save(test);
-		assertEquals(test, dao.findById(1L));
+	void depositMoney() throws DaoException, AccountServiceException {
+		Long newBalance = 123L;
+		Account account = accountDaoH2.findById(2L);
+		account.setBalance(123L);
+		accountService.depositMoney(account);
+		assertEquals(newBalance, accountService.getBalance(2L).getBalance());
 	}
 
 	@Test
-	void update() throws DaoException {
-		Card test = new Card(1L, 2L, 2L, new Date().toString(), "4444222233331111");
-		dao.save(test);
-		test.setExpirationDate("kek");
-		test.setCardNumber("0000111122223333");
-		dao.update(test);
-		assertEquals(test, dao.findById(1L));
-	}
-
-	@Test
-	void delete() throws DaoException {
-		Card test = new Card(1L, 3L, 3L, new Date().toString(), "4444222233331111");
-		dao.save(test);
-		dao.delete(1L);
-		assertEquals(0, dao.findAll().size());
-	}
-
-	@Test
-	void findByAccountId() throws DaoException{
-		List<Card> cards= new LinkedList<>();
-		cards.add(new Card(1L, 1L, 1L,  new Date().toString(), "1111222233334444"));
-		cards.add(new Card(2L, 1L, 1L,  new Date().toString(), "3333222211112222"));
-		for (Card demo: cards) {
-			dao.save(demo);
-		}
-		assertEquals(cards, dao.findByAccountId(1L));
+	void getBalance() throws DaoException, AccountServiceException {
+		Account account = accountDaoH2.findById(4L);
+		assertEquals(account.getBalance(), accountService.getBalance(4L).getBalance());
 	}
 }

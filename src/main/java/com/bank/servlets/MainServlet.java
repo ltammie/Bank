@@ -1,5 +1,8 @@
 package com.bank.servlets;
 
+import com.alibaba.fastjson.JSON;
+import com.bank.models.Client;
+
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -10,12 +13,18 @@ import java.io.PrintWriter;
 @WebServlet("/test")
 public class MainServlet extends HttpServlet{
 
-
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-		resp.setContentType("text/html");
+		resp.setContentType("/test/get");
+
+		Client client = new Client(1L, "John Wick", "8-800-555-35-35", "4132532543");
+		String jsonString = JSON.toJSONString(client);
+		System.out.println(jsonString);
+		Client client1 = JSON.parseObject(jsonString, Client.class);
+		System.out.println(client1.toString());
+
 		PrintWriter printWriter = resp.getWriter();
-		printWriter.write("Hello!");
+		printWriter.write(jsonString);
 		printWriter.close();
 	}
 }

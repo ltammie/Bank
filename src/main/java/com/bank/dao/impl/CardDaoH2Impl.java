@@ -22,6 +22,7 @@ public class CardDaoH2Impl implements CardDao {
 	private static final String SAVE = "INSERT INTO cards (account_id, client_id, expiration_date, card_number) VALUES (?, ?, ?, ?)";
 	private static final String UPDATE = "UPDATE cards SET account_id = ?, client_id = ?, expiration_date = ?, card_number = ? where card_id = ?";
 	private static final String DELETE = "DELETE FROM cards WHERE card_id = ?";
+	private static final String FIND_FOR_ACCOUNT = "select * from cards where account_id = ?";
 
 	@Override
 	public Card findById(Long id) throws DaoException {
@@ -160,5 +161,37 @@ public class CardDaoH2Impl implements CardDao {
 			Log.error("Failed to connect to database when deleting card with id=" + id, e);
 			throw new DaoException(e.getMessage(), e);
 		}
+	}
+
+	@Override
+	public List<Card> findByAccountId(Long id) throws DaoException {
+		List<Card> cards = new LinkedList<>();
+		try (Connection connection = H2DaoFactory.getConnection();
+			 PreparedStatement statement = connection.prepareStatement(FIND_FOR_ACCOUNT)) {
+			statement.setLong(1, id);
+			try (ResultSet resultSet = statement.executeQuery()) {
+				while (resultSet.next()) {
+					Long cardId = resultSet.getLong("card_id");
+					Long accountId = resultSet.getLong("account_id");
+					Long clientId = resultSet.getLong("client_id");
+					String date = resultSet.getString("expiration_date");
+					String number = resultSet.getString("card_number");
+					cards.add(new Card(cardId, accountId, clientId, date, number));
+				}
+				connection.commit();
+			} catch (SQLException e) {
+				Log.error("Failed to find all cards for account from database", e);
+				try {
+					connection.rollback();
+				} catch (SQLException ex) {
+					Log.error("Failed to rollback transaction", e);
+				}
+				throw new DaoException(e.getMessage(), e);
+			}
+		} catch (SQLException e) {
+			Log.error("Failed to connect to database when finding all cards for account", e);
+			throw new DaoException(e.getMessage(), e);
+		}
+		return cards;
 	}
 }

@@ -13,16 +13,16 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class AccountServiceImpl implements AccountService<Account, Card, Long> {
+	private static final Logger Log = LogManager.getLogger(AccountServiceImpl.class.getName());
 	private static final AccountDao accountDao;
 	private static final CardDao cardDao;
-	private static final Logger Log = LogManager.getLogger(AccountServiceImpl.class.getName());
+
 
 	static {
 		DaoFactory daoFactory = DaoFactory.getDaoFactory(DaoFactory.H2);
 		accountDao = daoFactory.getAccountDao();
 		cardDao = daoFactory.getCardDao();
 	}
-
 
 	@Override
 	public void createNewCard(Card card) throws AccountServiceException {
@@ -39,7 +39,7 @@ public class AccountServiceImpl implements AccountService<Account, Card, Long> {
 	public List<Card> getAllCards(Long id) throws AccountServiceException {
 		List<Card> cards = new LinkedList<>();
 		try {
-			cards = cardDao.findAll();
+			cards = cardDao.findByAccountId(id);
 		} catch (DaoException e) {
 			Log.error("Failed to get all cards for account with id=" + id, e);
 			throw new AccountServiceException(e.getMessage(), e);

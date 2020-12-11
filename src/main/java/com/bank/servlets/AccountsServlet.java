@@ -36,12 +36,9 @@ public class AccountsServlet extends HttpServlet {
 				case "2":
 					break;
 				case "3":
-					Long id = Long.parseLong(req.getParameter("account_id"));
-					Long client_id = Long.parseLong(req.getParameter("client_id"));
 					Long money = Long.parseLong(req.getParameter("transfer_amount"));
 					String number = req.getParameter("account_number");
-					account = new Account(id, client_id, money, number);
-					accountService.depositMoney(account);
+					accountService.depositMoney(new Account(1L, 2L, money, number));
 					break;
 				case "4":
 					account = accountService.getBalance(Long.parseLong(req.getParameter("account_id")));

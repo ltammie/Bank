@@ -8,20 +8,12 @@
 <form action="account" onsubmit="/accounts.html" method="POST">
     <table>
         <tr>
-            <td>Account ID:</td>
-            <td><input name="account_id" placeholder="id" required pattern="^[0-9]*$"/></td>
-        </tr>
-        <tr>
-            <td>Client ID: </td>
-            <td><input name="client_id" placeholder="client_id" required pattern="^[0-9]*$"/></td>
+            <td>Account number: </td>
+            <td><input name="account_number" placeholder="number" required pattern="^[0-9]{20}"/></td>
         </tr>
         <tr>
             <td>Transfer amount: </td>
             <td><input name="transfer_amount" placeholder="money" required pattern="^[0-9]*$"/></td>
-        </tr>
-        <tr>
-            <td>Account number: </td>
-            <td><input name="account_number" placeholder="number" required pattern="^[0-9]{20}"/></td>
         </tr>
     </table>
     <br><br>

@@ -38,7 +38,6 @@ public class AccountServiceImpl implements AccountService<Account, Card, Long> {
 		}
 	}
 
-	// rewrite - find better way to get all cards associated with an account
 	@Override
 	public List<Card> getAllCards(Long id) throws AccountServiceException {
 		List<Card> cards = new LinkedList<>();
@@ -54,9 +53,11 @@ public class AccountServiceImpl implements AccountService<Account, Card, Long> {
 	@Override
 	public void depositMoney(Account account) throws AccountServiceException {
 		try {
-			accountDao.update(account);
+			Account newAcc = accountDao.getAccountByNumber(account.getAccountNumber());
+			newAcc.setBalance(newAcc.getBalance() + account.getBalance());
+			accountDao.update(newAcc);
 		} catch (DaoException e) {
-			Log.error("Failed to deposit money for account with id=" + account.getId(), e);
+			Log.error("Failed to deposit money for account with number=" + account.getAccountNumber(), e);
 			throw new AccountServiceException(e.getMessage(), e);
 		}
 	}

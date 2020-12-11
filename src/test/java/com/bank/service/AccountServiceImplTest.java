@@ -87,7 +87,7 @@ class AccountServiceImplTest {
 
 	@Test
 	void getAllCards() throws AccountServiceException {
-		List<Card> cards = new LinkedList<Card>();
+		List<Card> cards = new LinkedList<>();
 		cards.add(new Card(1L, 3L, 3L,  new Date().toString(), "0000111122223333"));
 		cards.add(new Card(2L, 3L, 3L,  new Date().toString(), "2222000011114444"));
 		for (Card card: cards) {
@@ -98,9 +98,10 @@ class AccountServiceImplTest {
 
 	@Test
 	void depositMoney() throws DaoException, AccountServiceException {
-		Long newBalance = 123L;
+		Long moneyToAdd = 123L;
 		Account account = accountDaoH2.findById(2L);
-		account.setBalance(123L);
+		Long newBalance = account.getBalance() + moneyToAdd;
+		account.setBalance(moneyToAdd);
 		accountService.depositMoney(account);
 		assertEquals(newBalance, accountService.getBalance(2L).getBalance());
 	}

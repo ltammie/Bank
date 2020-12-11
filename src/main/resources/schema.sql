@@ -41,6 +41,15 @@ CREATE INDEX fkIdx_20 ON cards
  client_id
 );
 
+CREATE TABLE counter_agents
+(
+ counter_agent_id   bigint NOT NULL auto_increment,
+ name               varchar(50) NOT NULL,
+ inn                varchar(20) NOT NULL,
+ balance            bigint NOT NULL,
+ CONSTRAINT PK_counter_agent PRIMARY KEY ( counter_agent_id )
+);
+
 INSERT INTO clients (name, phone_number, passport) VALUES
 ('John Wick', '8-800-555-35-35', '4132532543'),
 ('Bob Wick', '8-300-455-22-11', '6767222333'),

@@ -1,5 +1,6 @@
 package com.bank.servlets;
 
+import com.alibaba.fastjson.JSON;
 import com.bank.models.Account;
 import com.bank.models.Card;
 import com.bank.models.CounterAgent;
@@ -15,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 @WebServlet("/agent")
 public class CounterAgentsServlet extends HttpServlet {
@@ -25,8 +27,15 @@ public class CounterAgentsServlet extends HttpServlet {
 	}
 
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		try (PrintWriter writer = resp.getWriter()){
+			List<CounterAgent> list = counterAgentService.getAllAgents();
+			resp.setContentType("application/json");
+			String jsonList = JSON.toJSONString(list);
+			writer.println(jsonList);
+		} catch (ServiceException e) {
+			resp.sendError(404, "Server error");
+		}
 	}
 
 	@Override
@@ -47,7 +56,6 @@ public class CounterAgentsServlet extends HttpServlet {
 					resp.setContentType("text/html");
 					break;
 			}
-
 		} catch (ServiceException e) {
 			resp.sendError(404, "Server error");
 		}

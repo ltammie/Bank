@@ -3,7 +3,7 @@ package com.bank.servlets;
 import com.alibaba.fastjson.JSON;
 import com.bank.models.Account;
 import com.bank.models.Card;
-import com.bank.service.AccountServiceException;
+import com.bank.service.ServiceException;
 import com.bank.service.AccountServiceImpl;
 import com.bank.utils.DataSourceProvider;
 
@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.LinkedList;
 import java.util.List;
 
 
@@ -67,7 +66,7 @@ public class AccountsServlet extends HttpServlet {
 					break;
 			}
 
-		} catch (AccountServiceException e) {
+		} catch (ServiceException e) {
 			resp.sendError(404, "Server error");
 		}
 	}

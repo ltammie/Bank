@@ -1,7 +1,6 @@
 package com.bank.dao.impl;
 
 import com.bank.dao.DaoException;
-import com.bank.models.Client;
 import com.bank.models.CounterAgent;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;

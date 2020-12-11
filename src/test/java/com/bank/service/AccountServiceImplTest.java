@@ -16,7 +16,6 @@ import org.junit.jupiter.api.Test;
 
 import javax.sql.DataSource;
 
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
@@ -77,7 +76,7 @@ class AccountServiceImplTest {
 	}
 
 	@Test
-	void createNewCard() throws AccountServiceException {
+	void createNewCard() throws ServiceException {
 		List<Card> cards = new LinkedList<Card>();
 		cards.add(new Card(1L, 3L, 3L,  new Date().toString(), "0000111122223333"));
 		accountService.createNewCard(cards.get(0));
@@ -86,7 +85,7 @@ class AccountServiceImplTest {
 	}
 
 	@Test
-	void getAllCards() throws AccountServiceException {
+	void getAllCards() throws ServiceException {
 		List<Card> cards = new LinkedList<>();
 		cards.add(new Card(1L, 3L, 3L,  new Date().toString(), "0000111122223333"));
 		cards.add(new Card(2L, 3L, 3L,  new Date().toString(), "2222000011114444"));
@@ -97,7 +96,7 @@ class AccountServiceImplTest {
 	}
 
 	@Test
-	void depositMoney() throws DaoException, AccountServiceException {
+	void depositMoney() throws DaoException, ServiceException {
 		Long moneyToAdd = 123L;
 		Account account = accountDaoH2.findById(2L);
 		Long newBalance = account.getBalance() + moneyToAdd;
@@ -107,7 +106,7 @@ class AccountServiceImplTest {
 	}
 
 	@Test
-	void getBalance() throws DaoException, AccountServiceException {
+	void getBalance() throws DaoException, ServiceException {
 		Account account = accountDaoH2.findById(4L);
 		assertEquals(account.getBalance(), accountService.getBalance(4L).getBalance());
 	}

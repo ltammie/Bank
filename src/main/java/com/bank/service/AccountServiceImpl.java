@@ -28,47 +28,50 @@ public class AccountServiceImpl implements AccountService<Account, Card, Long> {
 	}
 
 	@Override
-	public void createNewCard(Card card) throws AccountServiceException {
+	public void createNewCard(Card card) throws ServiceException {
 		try {
 			cardDao.save(card);
 		} catch (DaoException e) {
 			Log.error("Failed to get create new a card", e);
-			throw new AccountServiceException(e.getMessage(), e);
+			throw new ServiceException(e.getMessage(), e);
 		}
 	}
 
 	@Override
-	public List<Card> getAllCards(Long id) throws AccountServiceException {
+	public List<Card> getAllCards(Long id) throws ServiceException {
 		List<Card> cards = new LinkedList<>();
 		try {
 			cards = cardDao.findByAccountId(id);
 		} catch (DaoException e) {
 			Log.error("Failed to get all cards for account with id=" + id, e);
-			throw new AccountServiceException(e.getMessage(), e);
+			throw new ServiceException(e.getMessage(), e);
 		}
 		return cards;
 	}
 
 	@Override
-	public void depositMoney(Account account) throws AccountServiceException {
+	public void depositMoney(Account account) throws ServiceException {
 		try {
 			Account newAcc = accountDao.getAccountByNumber(account.getAccountNumber());
-			newAcc.setBalance(newAcc.getBalance() + account.getBalance());
-			accountDao.update(newAcc);
+			if (newAcc != null) {
+				newAcc.setBalance(newAcc.getBalance() + account.getBalance());
+				accountDao.update(newAcc);
+			} else
+				throw new DaoException();
 		} catch (DaoException e) {
 			Log.error("Failed to deposit money for account with number=" + account.getAccountNumber(), e);
-			throw new AccountServiceException(e.getMessage(), e);
+			throw new ServiceException(e.getMessage(), e);
 		}
 	}
 
 	@Override
-	public Account getBalance(Long id) throws AccountServiceException {
+	public Account getBalance(Long id) throws ServiceException {
 		Account account = null;
 		try {
 			account = accountDao.findById(id);
 		} catch (DaoException e) {
 			Log.error("Failed to get balance for account with id=" + id, e);
-			throw new AccountServiceException(e.getMessage(), e);
+			throw new ServiceException(e.getMessage(), e);
 		}
 		return account;
 	}

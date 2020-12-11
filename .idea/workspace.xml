@@ -6,8 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="e977fcd6-fb3a-4970-9c99-ec23abb80d6e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bank/dao/impl/CounterAgentDaoH2Impl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bank/dao/impl/CounterAgentDaoH2Impl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/schema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bank/service/AccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bank/service/AccountService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bank/service/AccountServiceException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bank/service/ServiceException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bank/service/AccountServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bank/service/AccountServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bank/servlets/AccountsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bank/servlets/AccountsServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/bank/dao/impl/CounterAgentDaoH2ImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/bank/dao/impl/CounterAgentDaoH2ImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/bank/service/AccountServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/bank/service/AccountServiceImplTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,11 +65,11 @@
       <recent name="D:\Bank\src\main\webapp\html" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
-      <recent name="com.bank.dao.impl" />
       <recent name="com.bank.service" />
+      <recent name="com.bank.dao.impl" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CounterAgentDaoH2ImplTest">
+  <component name="RunManager" selected="JUnit.CounterAgentServiceImplTest">
     <configuration name="App" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.bank.App" />
       <module name="Bank" />
@@ -85,15 +89,6 @@
       <option name="MAIN_CLASS_NAME" value="com.bank.dao.impl.AccountDaoH2ImplTest" />
       <option name="METHOD_NAME" value="getAccountByNumber" />
       <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AccountServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Bank" />
-      <option name="PACKAGE_NAME" value="com.bank.service" />
-      <option name="MAIN_CLASS_NAME" value="com.bank.service.AccountServiceImplTest" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -141,6 +136,21 @@
       <option name="MAIN_CLASS_NAME" value="com.bank.dao.impl.CounterAgentDaoH2ImplTest" />
       <option name="METHOD_NAME" value="getCounterAgentByInn" />
       <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CounterAgentServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Bank" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.bank.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.bank.service" />
+      <option name="MAIN_CLASS_NAME" value="com.bank.service.CounterAgentServiceImplTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -240,7 +250,6 @@
     </configuration>
     <list>
       <item itemvalue="Application.App" />
-      <item itemvalue="JUnit.AccountServiceImplTest" />
       <item itemvalue="JUnit.AccountServiceImplTest.depositMoney" />
       <item itemvalue="Maven.Bank [test]" />
       <item itemvalue="Maven.Bank [clean,compile]" />
@@ -248,14 +257,15 @@
       <item itemvalue="JUnit.AccountDaoH2ImplTest.getAccountByNumber" />
       <item itemvalue="JUnit.CounterAgentDaoH2ImplTest.getCounterAgentByInn" />
       <item itemvalue="JUnit.CounterAgentDaoH2ImplTest" />
+      <item itemvalue="JUnit.CounterAgentServiceImplTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CounterAgentServiceImplTest" />
         <item itemvalue="JUnit.CounterAgentDaoH2ImplTest" />
         <item itemvalue="JUnit.CounterAgentDaoH2ImplTest.getCounterAgentByInn" />
         <item itemvalue="JUnit.AccountServiceImplTest.depositMoney" />
         <item itemvalue="JUnit.AccountDaoH2ImplTest.getAccountByNumber" />
-        <item itemvalue="JUnit.AccountServiceImplTest" />
       </list>
     </recent_temporary>
   </component>

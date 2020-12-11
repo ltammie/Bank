@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet("/agents")
+@WebServlet("/agent")
 public class CounterAgentsServlet extends HttpServlet {
 	private CounterAgentServiceImpl counterAgentService = null;
 
@@ -22,13 +22,16 @@ public class CounterAgentsServlet extends HttpServlet {
 	}
 
 	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+	}
+
+	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		String command = req.getParameter("command");
 		try (PrintWriter writer = resp.getWriter()) {
 			switch (command) {
 				case "1":
-					break;
-				case "2":
 					break;
 				case "3":
 					break;

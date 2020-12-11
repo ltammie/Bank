@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>add_money</title>
+    <link href="forms.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<form action="agent" onsubmit="index.html" method="POST">
+    <table>
+        <tr>
+            <td>Agent's INN </td>
+            <td><input name="inn" class="text-input" placeholder="INN" required pattern="^[0-9]{10}"/></td>
+        </tr>
+        <tr>
+            <td>Transfer amount </td>
+            <td><input name="transfer_amount" class="text-input" placeholder="money" required pattern="^[0-9]*$"/></td>
+        </tr>
+    </table>
+    <br><br>
+    <input type="submit" value="Submit" />
+    <input type="hidden" name="command" value=3>
+</form>
+</body>
+</html>

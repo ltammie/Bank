@@ -44,6 +44,7 @@ public class EmployeeServiceImpl implements EmployeeService<Client, String, Long
 				throw new DaoException();
 		} catch (DaoException e) {
 			Log.error("Failed to open an account", e);
+			e.printStackTrace();
 			throw new ServiceException(e.getMessage(), e);
 		}
 	}

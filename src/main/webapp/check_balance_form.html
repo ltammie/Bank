@@ -2,13 +2,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Get cards</title>
+<title>get_balance</title>
 </head>
 <body>
 <form action="account" method="POST">
-    Account ID: <input name="account_id" />
+    Account ID: <input name="account_id" placeholder="ID" required pattern="^[0-9]*$"/>
     <br><br>
     <input type="submit" value="Submit" />
+    <input type="hidden" name="command" value=4>
 </form>
 </body>
 </html>

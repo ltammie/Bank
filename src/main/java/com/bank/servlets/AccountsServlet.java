@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 
-@WebServlet(name = "account", urlPatterns ="/accounts.html")
+@WebServlet("/account")
 public class AccountsServlet extends HttpServlet {
 	private AccountServiceImpl accountService = null;
 
@@ -26,21 +26,39 @@ public class AccountsServlet extends HttpServlet {
 	}
 
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String path = "html/submit_form.html";
-		ServletContext servletContext = getServletContext();
-		RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher(path);
-		requestDispatcher.forward(request, response);
-	}
-
-	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		resp.setContentType("application/json");
+		String command = req.getParameter("command");
 
 		try (PrintWriter writer = resp.getWriter()) {
-			Account account = accountService.getBalance(Long.parseLong(req.getParameter("account_id")));
-			String jsonString = JSON.toJSONString(account);
-			writer.println(jsonString);
+			switch(command) {
+				case "1":
+					break;
+				case "2":
+					break;
+				case "3":
+//					Long id = Long.parseLong(req.getParameter("account_id"));
+//					if (account == null) {
+//						resp.sendError(404, "Server error/Account not found!");
+//					}
+//					else {
+//						String jsonString = JSON.toJSONString(account.getBalance());
+//						writer.println(jsonString);
+//					}
+					System.out.println("act = " + 3);
+					break;
+				case "4":
+					Account account = accountService.getBalance(Long.parseLong(req.getParameter("account_id")));
+					if (account == null) {
+						resp.sendError(404, "Server error/Account not found!");
+					}
+					else {
+						String jsonString = JSON.toJSONString(account.getBalance());
+						writer.println(jsonString);
+					}
+					break;
+			}
+
 		} catch (AccountServiceException e) {
 			System.out.println("server error");
 		}

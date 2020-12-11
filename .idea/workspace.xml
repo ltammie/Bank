@@ -6,10 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="e977fcd6-fb3a-4970-9c99-ec23abb80d6e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bank/servlets/AccountsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bank/servlets/AccountsServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/bank/servlets/MainServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bank/servlets/MainServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/submit_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/html/submit_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/submit_form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/submit_form.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/html/accounts.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/accounts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/html/submit_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/check_balance_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/cards_list.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/submit_result.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/submit_form.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/submit_form.jsp" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +46,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/WEB-INF" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -50,17 +55,17 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Bank\src\main\webapp\WEB-INF" />
       <recent name="D:\Bank\src\main\webapp" />
+      <recent name="D:\Bank\src\main\webapp\WEB-INF" />
       <recent name="D:\Bank\src\test\resources" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Bank\src\main\webapp" />
       <recent name="D:\Bank\src\main\webapp\jsp" />
       <recent name="D:\Bank\src\main\webapp\html" />
-      <recent name="D:\Bank\src\main\webapp" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="com.bank.service" />

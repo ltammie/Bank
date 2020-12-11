@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e977fcd6-fb3a-4970-9c99-ec23abb80d6e" name="Default Changelist" comment="" />
+    <list default="true" id="e977fcd6-fb3a-4970-9c99-ec23abb80d6e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -201,9 +203,7 @@
       <option name="adminPort" value="8005" />
       <option name="contextPath" value="/Bank" />
       <option name="docBase" value="$PROJECT_DIR$/src/main/webapp" />
-      <option name="envOptions">
-        <map />
-      </option>
+      <option name="envOptions" />
       <option name="passParentEnvironmentVariables" value="true" />
       <option name="port" value="8001" />
       <option name="tomcatInfo">
@@ -241,14 +241,14 @@
     </configuration>
     <list>
       <item itemvalue="Application.App" />
-      <item itemvalue="Maven.Bank [test]" />
-      <item itemvalue="Maven.Bank [clean,compile]" />
-      <item itemvalue="Smart Tomcat.BankServlet" />
       <item itemvalue="JUnit.CounterAgentDaoH2ImplTest" />
       <item itemvalue="JUnit.CounterAgentServiceImplTest" />
       <item itemvalue="JUnit.ClientDaoH2ImplTest.findClientByPassport" />
       <item itemvalue="JUnit.EmployeeServiceImplTest" />
       <item itemvalue="JUnit.EmployeeServiceImplTest.openNewAccount" />
+      <item itemvalue="Maven.Bank [test]" />
+      <item itemvalue="Maven.Bank [clean,compile]" />
+      <item itemvalue="Smart Tomcat.BankServlet" />
     </list>
     <recent_temporary>
       <list>

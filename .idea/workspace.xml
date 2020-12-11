@@ -5,13 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e977fcd6-fb3a-4970-9c99-ec23abb80d6e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bank/service/AccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bank/service/AccountService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bank/service/AccountServiceException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bank/service/ServiceException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bank/service/AccountServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bank/service/AccountServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bank/servlets/AccountsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bank/servlets/AccountsServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/bank/dao/impl/CounterAgentDaoH2ImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/bank/dao/impl/CounterAgentDaoH2ImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/bank/service/AccountServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/bank/service/AccountServiceImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,8 +16,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>

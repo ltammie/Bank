@@ -97,4 +97,12 @@ class ClientDaoH2ImplTest {
 		}
 		assertEquals(demos, dao.findAll());
 	}
+
+	@Test
+	void findClientByPassport() throws DaoException  {
+		Client test = new Client(1L, "Max Caulfield", "1-111-222-33-44", "1111222000");
+		dao.save(test);
+		Client check = dao.findClientByPassport(test.getPassport());
+		assertEquals(test, check);
+	}
 }

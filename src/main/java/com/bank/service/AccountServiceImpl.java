@@ -32,7 +32,7 @@ public class AccountServiceImpl implements AccountService<Account, Card, Long> {
 		try {
 			cardDao.save(card);
 		} catch (DaoException e) {
-			Log.error("Failed to get create new a card", e);
+			Log.error("Failed to get create a new card", e);
 			throw new ServiceException(e.getMessage(), e);
 		}
 	}

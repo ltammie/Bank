@@ -24,6 +24,8 @@ public class ClientDaoH2Impl implements ClientDao {
 	private static final String SAVE = "INSERT INTO clients (name, phone_number, passport) VALUES (?, ?, ?)";
 	private static final String UPDATE = "UPDATE clients SET name = ?, phone_number = ?, passport = ? where client_id = ?";
 	private static final String DELETE = "DELETE FROM clients WHERE client_id = ?";
+	private static final String FIND_BY_PASS = "select * from clients where passport = ?";
+
 
 	public ClientDaoH2Impl(DataSource ds) {
 		this.ds = ds;
@@ -163,4 +165,35 @@ public class ClientDaoH2Impl implements ClientDao {
 				throw new DaoException(e.getMessage(), e);
 			}
 		}
+
+	@Override
+	public Client findClientByPassport(String pass) throws DaoException {
+		Client client = null;
+		try (Connection connection = ds.getConnection();
+			 PreparedStatement statement = connection.prepareStatement(FIND_BY_PASS)) {
+			statement.setString(1, pass);
+			try (ResultSet resultSet = statement.executeQuery()) {
+				if (resultSet.next()) {
+					Long clientId = resultSet.getLong("client_id");
+					String name = resultSet.getString("name");
+					String phone_number = resultSet.getString("phone_number");
+					String passport = resultSet.getString("passport");
+					client = new Client(clientId, name, phone_number, passport);
+				}
+				connection.commit();
+			} catch (SQLException e) {
+				Log.error("Failed to find client with passport=" + pass, e);
+				try {
+					connection.rollback();
+				} catch (SQLException ex) {
+					Log.error("Failed to rollback transaction", e);
+				}
+				throw new DaoException(e.getMessage(), e);
+			}
+		} catch (SQLException e) {
+			Log.error("Failed to connect to database when finding client with passport=" + pass, e);
+			throw new DaoException(e.getMessage(), e);
+		}
+		return client;
 	}
+}

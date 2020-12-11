@@ -32,7 +32,6 @@ class AccountServiceImplTest {
 	private static DataSource ds;
 	private static ClientDaoH2Impl clientDaoH2;
 	private static AccountDaoH2Impl accountDaoH2;
-	private static CardDaoH2Impl cardDaoH2;
 	private static AccountServiceImpl accountService;
 
 	@BeforeAll
@@ -48,7 +47,6 @@ class AccountServiceImplTest {
 			ds = new HikariDataSource(config);
 			clientDaoH2 = new ClientDaoH2Impl(ds);
 			accountDaoH2 = new AccountDaoH2Impl(ds);
-			cardDaoH2 = new CardDaoH2Impl(ds);
 			accountService = new AccountServiceImpl(ds);
 		} catch (Exception e) {
 			e.printStackTrace();

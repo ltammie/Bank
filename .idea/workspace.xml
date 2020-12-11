@@ -6,8 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="e977fcd6-fb3a-4970-9c99-ec23abb80d6e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bank/utils/DataSourceProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bank/utils/DataSourceProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/agents.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/agents.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bank/dao/ClientDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bank/dao/ClientDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bank/dao/impl/ClientDaoH2Impl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bank/dao/impl/ClientDaoH2Impl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bank/service/AccountServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bank/service/AccountServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/bank/dao/impl/ClientDaoH2ImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/bank/dao/impl/ClientDaoH2ImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/bank/service/AccountServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/bank/service/AccountServiceImplTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +21,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="JUnit5 Test Class" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -65,7 +68,7 @@
       <recent name="com.bank.dao.impl" />
     </key>
   </component>
-  <component name="RunManager" selected="Smart Tomcat.BankServlet">
+  <component name="RunManager" selected="JUnit.EmployeeServiceImplTest">
     <configuration name="App" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.bank.App" />
       <module name="Bank" />
@@ -73,7 +76,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AccountDaoH2ImplTest.getAccountByNumber" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ClientDaoH2ImplTest.findClientByPassport" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Bank" />
       <extension name="coverage">
         <pattern>
@@ -82,24 +85,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.bank.dao.impl" />
-      <option name="MAIN_CLASS_NAME" value="com.bank.dao.impl.AccountDaoH2ImplTest" />
-      <option name="METHOD_NAME" value="getAccountByNumber" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AccountServiceImplTest.depositMoney" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Bank" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.bank.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.bank.service" />
-      <option name="MAIN_CLASS_NAME" value="com.bank.service.AccountServiceImplTest" />
-      <option name="METHOD_NAME" value="depositMoney" />
+      <option name="MAIN_CLASS_NAME" value="com.bank.dao.impl.ClientDaoH2ImplTest" />
+      <option name="METHOD_NAME" value="findClientByPassport" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -120,22 +107,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CounterAgentDaoH2ImplTest.getCounterAgentByInn" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Bank" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.bank.dao.impl.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.bank.dao.impl" />
-      <option name="MAIN_CLASS_NAME" value="com.bank.dao.impl.CounterAgentDaoH2ImplTest" />
-      <option name="METHOD_NAME" value="getCounterAgentByInn" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="CounterAgentServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Bank" />
       <extension name="coverage">
@@ -147,6 +118,37 @@
       <option name="PACKAGE_NAME" value="com.bank.service" />
       <option name="MAIN_CLASS_NAME" value="com.bank.service.CounterAgentServiceImplTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EmployeeServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Bank" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.bank.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.bank.service" />
+      <option name="MAIN_CLASS_NAME" value="com.bank.service.EmployeeServiceImplTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EmployeeServiceImplTest.openNewAccount" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Bank" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.bank.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.bank.service" />
+      <option name="MAIN_CLASS_NAME" value="com.bank.service.EmployeeServiceImplTest" />
+      <option name="METHOD_NAME" value="openNewAccount" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -246,22 +248,22 @@
     </configuration>
     <list>
       <item itemvalue="Application.App" />
-      <item itemvalue="JUnit.AccountServiceImplTest.depositMoney" />
       <item itemvalue="Maven.Bank [test]" />
       <item itemvalue="Maven.Bank [clean,compile]" />
       <item itemvalue="Smart Tomcat.BankServlet" />
-      <item itemvalue="JUnit.AccountDaoH2ImplTest.getAccountByNumber" />
-      <item itemvalue="JUnit.CounterAgentDaoH2ImplTest.getCounterAgentByInn" />
       <item itemvalue="JUnit.CounterAgentDaoH2ImplTest" />
       <item itemvalue="JUnit.CounterAgentServiceImplTest" />
+      <item itemvalue="JUnit.ClientDaoH2ImplTest.findClientByPassport" />
+      <item itemvalue="JUnit.EmployeeServiceImplTest" />
+      <item itemvalue="JUnit.EmployeeServiceImplTest.openNewAccount" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.EmployeeServiceImplTest" />
+        <item itemvalue="JUnit.EmployeeServiceImplTest.openNewAccount" />
+        <item itemvalue="JUnit.ClientDaoH2ImplTest.findClientByPassport" />
         <item itemvalue="JUnit.CounterAgentServiceImplTest" />
         <item itemvalue="JUnit.CounterAgentDaoH2ImplTest" />
-        <item itemvalue="JUnit.CounterAgentDaoH2ImplTest.getCounterAgentByInn" />
-        <item itemvalue="JUnit.AccountServiceImplTest.depositMoney" />
-        <item itemvalue="JUnit.AccountDaoH2ImplTest.getAccountByNumber" />
       </list>
     </recent_temporary>
   </component>

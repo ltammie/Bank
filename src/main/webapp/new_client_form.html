@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>new client</title>
+    <link href="forms.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<form action="employee" method="POST">
+    <table>
+        <tr>
+            <td>Client Name: </td>
+            <td><input name="client_name" class="text-input" placeholder="client name" required pattern="^[A-Za-z]*$"/></td>
+        </tr>
+        <tr>
+            <td>Phone number: </td>
+            <td><input name="phone" class="text-input" placeholder="phone" required pattern="^[0-9]*$"/></td>
+        </tr>
+        <tr>
+            <td>Passport number: </td>
+            <td><input name="passport" class="text-input" placeholder="passport" required pattern="^[0-9]{10}"/></td>
+        </tr>
+    </table>
+    <br><br>
+    <input type="submit" value="Submit" />
+    <input type="hidden" name="command" value=1>
+</form>
+</body>
+</html>

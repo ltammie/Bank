@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-    <title>add_money</title>
+    <meta charset="UTF-8">
+    <title>new agent</title>
     <link href="forms.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<form action="account" onsubmit="index.html" method="POST">
+<form action="employee" method="POST">
     <table>
         <tr>
             <td>Account number: </td>
             <td><input name="account_number" class="text-input" placeholder="number" required pattern="^[0-9]{20}"/></td>
         </tr>
         <tr>
-            <td>Transfer amount: </td>
-            <td><input name="transfer_amount" class="text-input" placeholder="money" required pattern="^[0-9]*$"/></td>
+            <td>Passport: </td>
+            <td><input name="passport" class="text-input" placeholder="passport" required pattern="^[A-Za-z]*$"/></td>
         </tr>
     </table>
     <br><br>
     <input type="submit" value="Submit" />
-    <input type="hidden" name="command" value=3>
+    <input type="hidden" name="command" value=2>
 </form>
 </body>
 </html>

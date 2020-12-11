@@ -48,12 +48,14 @@ public class CounterAgentsServlet extends HttpServlet {
 					String inn =  req.getParameter("inn");
 					counterAgentService.addNewAgent(new CounterAgent(1L, name, inn, 0L));
 					resp.setContentType("text/html");
+					resp.sendRedirect(req.getContextPath());
 					break;
 				case "3":
 					String number = req.getParameter("inn");
 					Long money = Long.parseLong(req.getParameter("transfer_amount"));
 					counterAgentService.addMoneyToAgent(number, money);
 					resp.setContentType("text/html");
+					resp.sendRedirect(req.getContextPath());
 					break;
 			}
 		} catch (ServiceException e) {

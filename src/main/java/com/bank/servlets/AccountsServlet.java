@@ -39,6 +39,7 @@ public class AccountsServlet extends HttpServlet {
 					String cardNumber = req.getParameter("card_number");
 					accountService.createNewCard(new Card(2L, accountId, clientId, date, cardNumber));
 					resp.setContentType("text/html");
+					resp.sendRedirect(req.getContextPath());
 					break;
 				case "2":
 					Long id  = Long.parseLong(req.getParameter("account_id"));
@@ -52,6 +53,7 @@ public class AccountsServlet extends HttpServlet {
 					String number = req.getParameter("account_number");
 					accountService.depositMoney(new Account(1L, 2L, money, number));
 					resp.setContentType("text/html");
+					resp.sendRedirect(req.getContextPath());
 					break;
 				case "4":
 					Account account = accountService.getBalance(Long.parseLong(req.getParameter("account_id")));

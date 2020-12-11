@@ -2,18 +2,19 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>add_money</title>
+    <title>add_money</title>
+    <link href="forms.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <form action="account" onsubmit="/accounts.html" method="POST">
     <table>
         <tr>
-            <td>Account number: </td>
-            <td><input name="account_number" placeholder="number" required pattern="^[0-9]{20}"/></td>
+            <td>Account number </td>
+            <td><input name="account_number" class="text-input" placeholder="number" required pattern="^[0-9]{20}"/></td>
         </tr>
         <tr>
-            <td>Transfer amount: </td>
-            <td><input name="transfer_amount" placeholder="money" required pattern="^[0-9]*$"/></td>
+            <td>Transfer amount </td>
+            <td><input name="transfer_amount" class="text-input" placeholder="money" required pattern="^[0-9]*$"/></td>
         </tr>
     </table>
     <br><br>

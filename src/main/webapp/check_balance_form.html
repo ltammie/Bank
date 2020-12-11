@@ -7,7 +7,12 @@
 </head>
 <body>
 <form action="account" method="POST">
-    Account ID: <input name="account_id" class="text-input" placeholder="ID" required pattern="^[0-9]*$"/>
+    <table>
+        <tr>
+            <td>Account id </td>
+            <td><input name="account_id" class="text-input" placeholder="id" required pattern="^[0-9]*$"/></td>
+        </tr>
+    </table>
     <br><br>
     <input type="submit" value="Submit" />
     <input type="hidden" name="command" value=4>

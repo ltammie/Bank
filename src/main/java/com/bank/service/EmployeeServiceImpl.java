@@ -29,7 +29,7 @@ public class EmployeeServiceImpl implements EmployeeService<Client, String, Long
 		try {
 			clientDao.save(client);
 		} catch (DaoException e) {
-			Log.error("Failed to get create a new Client", e);
+			Log.error("Failed to create a new Client", e);
 			throw new ServiceException(e.getMessage(), e);
 		}
 	}
@@ -43,7 +43,7 @@ public class EmployeeServiceImpl implements EmployeeService<Client, String, Long
 			} else
 				throw new DaoException();
 		} catch (DaoException e) {
-			Log.error("Failed to get open an account", e);
+			Log.error("Failed to open an account", e);
 			throw new ServiceException(e.getMessage(), e);
 		}
 	}

@@ -6,9 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="e977fcd6-fb3a-4970-9c99-ec23abb80d6e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/add_money_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/add_money_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/new_agent_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/new_agent_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/new_card_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/new_card_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bank/service/EmployeeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bank/service/EmployeeServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bank/servlets/EmployeeServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bank/servlets/EmployeeServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/new_account_from.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +67,7 @@
       <recent name="com.bank.dao.impl" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.EmployeeServiceImplTest">
+  <component name="RunManager" selected="Smart Tomcat.BankServlet">
     <configuration name="App" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.bank.App" />
       <module name="Bank" />
@@ -292,6 +293,28 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/bank/service/EmployeeServiceImpl.java</url>
+          <line>37</line>
+          <properties class="com.bank.service.EmployeeServiceImpl" method="openNewAccount">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/bank/service/EmployeeServiceImpl.java</url>
+          <line>27</line>
+          <properties class="com.bank.service.EmployeeServiceImpl" method="addNewClient">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 @WebServlet("/employee")
 public class EmployeeServlet extends HttpServlet {
@@ -29,9 +28,9 @@ public class EmployeeServlet extends HttpServlet {
 		try {
 			switch (command) {
 				case "1":
-					String name =  req.getParameter("client_name");
-					String phone =  req.getParameter("phone");
-					String pass =  req.getParameter("passport");
+					String name = req.getParameter("client_name");
+					String phone = req.getParameter("phone");
+					String pass = req.getParameter("passport");
 					employeeService.addNewClient(new Client(1L, name, phone, pass));
 					resp.setContentType("text/html");
 					resp.sendRedirect(req.getContextPath());
@@ -47,4 +46,5 @@ public class EmployeeServlet extends HttpServlet {
 		} catch (ServiceException e) {
 			resp.sendError(404, "Server error");
 		}
+	}
 }

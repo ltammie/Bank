@@ -27,7 +27,6 @@ public class AccountServiceImpl implements AccountService<Account, Card, Long> {
 		Log  = LogManager.getLogger(AccountServiceImpl.class.getName());
 	}
 
-
 	@Override
 	public void createNewCard(Card card) throws AccountServiceException {
 		try {

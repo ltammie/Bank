@@ -34,6 +34,12 @@ public class AccountsServlet extends HttpServlet {
 		try (PrintWriter writer = resp.getWriter()) {
 			switch(command) {
 				case "1":
+					Long accountId =  Long.parseLong(req.getParameter("account_id"));
+					Long clientId =  Long.parseLong(req.getParameter("client_id"));
+					String date =  req.getParameter("expiration_date");
+					String cardNumber = req.getParameter("card_number");
+					accountService.createNewCard(new Card(2L, accountId, clientId, date, cardNumber));
+					resp.setContentType("text/html");
 					break;
 				case "2":
 					Long id  = Long.parseLong(req.getParameter("account_id"));

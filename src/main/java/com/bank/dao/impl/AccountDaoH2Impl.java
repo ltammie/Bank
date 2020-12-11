@@ -23,6 +23,8 @@ public class AccountDaoH2Impl implements AccountDao {
 	private static final String SAVE = "INSERT INTO accounts (client_id, balance, account_number) VALUES (?, ?, ?)";
 	private static final String UPDATE = "UPDATE accounts SET client_id = ?, balance = ?, account_number = ? where account_id = ?";
 	private static final String DELETE = "DELETE FROM accounts WHERE account_id = ?";
+	private static final String FIND_BY_NUMBER = "select * from accounts where account_number = ?";
+
 
 	public AccountDaoH2Impl(DataSource ds) {
 		this.ds = ds;
@@ -161,5 +163,36 @@ public class AccountDaoH2Impl implements AccountDao {
 			Log.error("Failed to connect to database when deleting account with id=" + id, e);
 			throw new DaoException(e.getMessage(), e);
 		}
+	}
+
+	@Override
+	public Account getAccountByNumber(String number) throws DaoException {
+		Account account = null;
+		try (Connection connection = ds.getConnection();
+			 PreparedStatement statement = connection.prepareStatement(FIND_BY_NUMBER)) {
+			statement.setString(1, number);
+			try (ResultSet resultSet = statement.executeQuery()) {
+				if (resultSet.next()) {
+					Long accountId = resultSet.getLong("account_id");
+					Long clientId = resultSet.getLong("client_id");
+					Long balance = resultSet.getLong("balance");
+					String accountNumber =resultSet.getString("account_number");
+					account = new Account(accountId, clientId, balance, accountNumber);
+				}
+				connection.commit();
+			} catch (SQLException e) {
+				Log.error("Failed to find account with number=" + number, e);
+				try {
+					connection.rollback();
+				} catch (SQLException ex) {
+					Log.error("Failed to rollback transaction", e);
+				}
+				throw new DaoException(e.getMessage(), e);
+			}
+		} catch (SQLException e) {
+			Log.error("Failed to connect to database when finding account with id=" + number, e);
+			throw new DaoException(e.getMessage(), e);
+		}
+		return account;
 	}
 }

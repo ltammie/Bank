@@ -106,4 +106,12 @@ class AccountDaoH2ImplTest {
 		dao.delete(1L);
 		assertEquals(0, dao.findAll().size());
 	}
+
+	@Test
+	void getAccountByNumber() throws DaoException {
+		Account test = new Account(1L, 3L, 1_000L, "00000222223333344444");
+		dao.save(test);
+		assertEquals(test, dao.getAccountByNumber(test.getAccountNumber()));
+
+	}
 }

@@ -6,8 +6,6 @@ import com.bank.service.AccountServiceException;
 import com.bank.service.AccountServiceImpl;
 import com.bank.utils.DataSourceProvider;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

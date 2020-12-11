@@ -31,24 +31,22 @@ public class AccountsServlet extends HttpServlet {
 		String command = req.getParameter("command");
 
 		try (PrintWriter writer = resp.getWriter()) {
+			Account account;
 			switch(command) {
 				case "1":
 					break;
 				case "2":
 					break;
 				case "3":
-//					Long id = Long.parseLong(req.getParameter("account_id"));
-//					if (account == null) {
-//						resp.sendError(404, "Server error/Account not found!");
-//					}
-//					else {
-//						String jsonString = JSON.toJSONString(account.getBalance());
-//						writer.println(jsonString);
-//					}
-					System.out.println("act = " + 3);
+					Long id = Long.parseLong(req.getParameter("account_id"));
+					Long client_id = Long.parseLong(req.getParameter("client_id"));
+					Long money = Long.parseLong(req.getParameter("transfer_amount"));
+					String number = req.getParameter("account_number");
+					account = new Account(id, client_id, money, number);
+					accountService.depositMoney(account);
 					break;
 				case "4":
-					Account account = accountService.getBalance(Long.parseLong(req.getParameter("account_id")));
+					account = accountService.getBalance(Long.parseLong(req.getParameter("account_id")));
 					if (account == null) {
 						resp.sendError(404, "Server error/Account not found!");
 					}

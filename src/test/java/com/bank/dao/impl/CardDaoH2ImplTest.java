@@ -13,8 +13,8 @@ import org.junit.jupiter.api.Test;
 
 import javax.sql.DataSource;
 
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.Reader;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -32,7 +32,7 @@ class CardDaoH2ImplTest {
 	static void init() {
 		try {
 			Properties properties = new Properties();
-			properties.load(CardDaoH2ImplTest.class.getResourceAsStream("/db.properties"));
+			properties.load(CardDaoH2ImplTest.class.getResourceAsStream("/db_test.properties"));
 			HikariConfig config = new HikariConfig();
 			config.setJdbcUrl(properties.getProperty("db.url"));
 			config.setUsername(properties.getProperty("db.user"));
@@ -49,7 +49,7 @@ class CardDaoH2ImplTest {
 
 	@BeforeEach
 	public void reset() throws DaoException {
-		try (Reader reader = new FileReader("src/test/resources/schema.sql");
+		try (Reader reader = new InputStreamReader(CardDaoH2ImplTest.class.getResourceAsStream("/schema.sql"));
 			 Connection con = ds.getConnection()) {
 			RunScript.execute(con, reader);
 		} catch (SQLException | IOException e) {

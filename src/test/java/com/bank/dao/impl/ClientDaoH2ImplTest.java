@@ -8,8 +8,8 @@ import org.h2.tools.RunScript;
 import org.junit.jupiter.api.*;
 
 import javax.sql.DataSource;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.Reader;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -28,7 +28,7 @@ class ClientDaoH2ImplTest {
 	static void init() {
 		try {
 			Properties properties = new Properties();
-			properties.load(ClientDaoH2ImplTest.class.getResourceAsStream("/db.properties"));
+			properties.load(ClientDaoH2ImplTest.class.getResourceAsStream("/db_test.properties"));
 			HikariConfig config = new HikariConfig();
 			config.setJdbcUrl(properties.getProperty("db.url"));
 			config.setUsername(properties.getProperty("db.user"));
@@ -43,7 +43,7 @@ class ClientDaoH2ImplTest {
 
 	@BeforeEach
 	public void reset() {
-		try (Reader reader = new FileReader("src/test/resources/schema.sql");
+		try (Reader reader = new InputStreamReader(ClientDaoH2ImplTest.class.getResourceAsStream("/schema.sql"));
 			 Connection con = ds.getConnection()) {
 			RunScript.execute(con, reader);
 		} catch (SQLException  | IOException e) {

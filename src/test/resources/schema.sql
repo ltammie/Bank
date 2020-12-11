@@ -40,3 +40,12 @@ CREATE INDEX fkIdx_20 ON cards
  account_id,
  client_id
 );
+
+CREATE TABLE counter_agents
+(
+ counter_agent_id   bigint NOT NULL auto_increment,
+ name               varchar(50) NOT NULL,
+ inn                varchar(20) NOT NULL,
+ balance            bigint NOT NULL,
+ CONSTRAINT PK_counter_agent PRIMARY KEY ( counter_agent_id )
+);

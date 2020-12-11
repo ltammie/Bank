@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="e977fcd6-fb3a-4970-9c99-ec23abb80d6e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bank/servlets/AccountsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bank/servlets/AccountsServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bank/dao/impl/CounterAgentDaoH2Impl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bank/dao/impl/CounterAgentDaoH2Impl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/schema.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,9 +17,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JUnit5 Test Class" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -64,7 +65,7 @@
       <recent name="com.bank.service" />
     </key>
   </component>
-  <component name="RunManager" selected="Smart Tomcat.BankServlet">
+  <component name="RunManager" selected="JUnit.CounterAgentDaoH2ImplTest">
     <configuration name="App" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.bank.App" />
       <module name="Bank" />
@@ -113,7 +114,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CardDaoH2ImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CounterAgentDaoH2ImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Bank" />
       <extension name="coverage">
         <pattern>
@@ -122,13 +123,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.bank.dao.impl" />
-      <option name="MAIN_CLASS_NAME" value="com.bank.dao.impl.CardDaoH2ImplTest" />
+      <option name="MAIN_CLASS_NAME" value="com.bank.dao.impl.CounterAgentDaoH2ImplTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ClientDaoH2ImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CounterAgentDaoH2ImplTest.getCounterAgentByInn" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Bank" />
       <extension name="coverage">
         <pattern>
@@ -137,8 +138,9 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.bank.dao.impl" />
-      <option name="MAIN_CLASS_NAME" value="com.bank.dao.impl.ClientDaoH2ImplTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="com.bank.dao.impl.CounterAgentDaoH2ImplTest" />
+      <option name="METHOD_NAME" value="getCounterAgentByInn" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -243,17 +245,17 @@
       <item itemvalue="Maven.Bank [test]" />
       <item itemvalue="Maven.Bank [clean,compile]" />
       <item itemvalue="Smart Tomcat.BankServlet" />
-      <item itemvalue="JUnit.ClientDaoH2ImplTest" />
-      <item itemvalue="JUnit.CardDaoH2ImplTest" />
       <item itemvalue="JUnit.AccountDaoH2ImplTest.getAccountByNumber" />
+      <item itemvalue="JUnit.CounterAgentDaoH2ImplTest.getCounterAgentByInn" />
+      <item itemvalue="JUnit.CounterAgentDaoH2ImplTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CounterAgentDaoH2ImplTest" />
+        <item itemvalue="JUnit.CounterAgentDaoH2ImplTest.getCounterAgentByInn" />
         <item itemvalue="JUnit.AccountServiceImplTest.depositMoney" />
         <item itemvalue="JUnit.AccountDaoH2ImplTest.getAccountByNumber" />
         <item itemvalue="JUnit.AccountServiceImplTest" />
-        <item itemvalue="JUnit.ClientDaoH2ImplTest" />
-        <item itemvalue="JUnit.CardDaoH2ImplTest" />
       </list>
     </recent_temporary>
   </component>

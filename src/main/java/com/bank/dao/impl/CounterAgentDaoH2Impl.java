@@ -2,7 +2,6 @@ package com.bank.dao.impl;
 
 import com.bank.dao.CounterAgentDao;
 import com.bank.dao.DaoException;
-import com.bank.models.Client;
 import com.bank.models.CounterAgent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -18,11 +17,11 @@ import java.util.List;
 public class CounterAgentDaoH2Impl implements CounterAgentDao {
 	private static final Logger Log = LogManager.getLogger(ClientDaoH2Impl.class.getName());
 	private final DataSource ds;
-	private static final String FIND_BY_ID = "select * from contractors where card_id = ?";
-	private static final String FIND_ALL = "select * from cards";
-	private static final String SAVE = "INSERT INTO cards (account_id, client_id, expiration_date, card_number) VALUES (?, ?, ?, ?)";
-	private static final String UPDATE = "UPDATE cards SET account_id = ?, client_id = ?, expiration_date = ?, card_number = ? where card_id = ?";
-	private static final String DELETE = "DELETE FROM cards WHERE card_id = ?";
+	private static final String FIND_BY_ID = "select * from counter_agents where counter_agent_id = ?";
+	private static final String FIND_ALL = "select * from counter_agents";
+	private static final String SAVE = "INSERT INTO counter_agents (name, inn, balance) VALUES (?, ?, ?)";
+	private static final String UPDATE = "UPDATE counter_agents SET name = ?, inn = ?, balance = ? where counter_agent_id = ?";
+	private static final String DELETE = "DELETE FROM counter_agents WHERE counter_agent_id = ?";
 	private static final String FIND_FOR_INN = "select * from counter_agents where inn = ?";
 
 	public CounterAgentDaoH2Impl(DataSource ds) {
@@ -100,15 +99,15 @@ public class CounterAgentDaoH2Impl implements CounterAgentDao {
 			 PreparedStatement statement = connection.prepareStatement(FIND_ALL)) {
 			try (ResultSet resultSet = statement.executeQuery()) {
 				while (resultSet.next()) {
-					Long clientId = resultSet.getLong("client_id");
+					Long id = resultSet.getLong("counter_agent_id");
 					String name = resultSet.getString("name");
-					String phone_number = resultSet.getString("phone_number");
-					String passport = resultSet.getString("passport");
-					clients.add(new Client(clientId, name, phone_number, passport));
+					String inn = resultSet.getString("inn");
+					Long balance = resultSet.getLong("balance");
+					counterAgents.add(new CounterAgent(id, name, inn, balance));
 				}
 				connection.commit();
 			} catch (SQLException e) {
-				Log.error("Failed to find all clients from database", e);
+				Log.error("Failed to find all counteragents from database", e);
 				try {
 					connection.rollback();
 				} catch (SQLException ex) {
@@ -117,24 +116,85 @@ public class CounterAgentDaoH2Impl implements CounterAgentDao {
 				throw new DaoException(e.getMessage(), e);
 			}
 		} catch (SQLException e) {
-			Log.error("Failed to connect to database when finding all clients", e);
+			Log.error("Failed to connect to database when finding all counteragents", e);
 			throw new DaoException(e.getMessage(), e);
 		}
-		return clients;
+		return counterAgents;
 	}
 
 	@Override
 	public void save(CounterAgent counterAgent) throws DaoException {
-
+		try (Connection connection = ds.getConnection();
+			 PreparedStatement statement = connection.prepareStatement(SAVE)) {
+			statement.setString(1, counterAgent.getName());
+			statement.setString(2, counterAgent.getInn());
+			statement.setLong(3, counterAgent.getBalance());
+			try {
+				statement.executeUpdate();
+				connection.commit();
+			} catch (SQLException e) {
+				Log.error("Failed to save " + counterAgent.toString(), e);
+				try {
+					connection.rollback();
+				} catch (SQLException ex) {
+					Log.error("Failed to rollback transaction", e);
+				}
+				throw new DaoException(e.getMessage(), e);
+			}
+		} catch (SQLException e) {
+			Log.error("Failed to connect to database when saving " + counterAgent.toString(), e);
+			throw new DaoException(e.getMessage(), e);
+		}
 	}
 
 	@Override
 	public void update(CounterAgent counterAgent) throws DaoException {
+		try (Connection connection = ds.getConnection();
+			 PreparedStatement statement = connection.prepareStatement(UPDATE)) {
+			statement.setString(1, counterAgent.getName());
+			statement.setString(2, counterAgent.getInn());
+			statement.setLong(3, counterAgent.getBalance());
+			statement.setLong(4, counterAgent.getId());
+			try {
+				statement.executeUpdate();
+				connection.commit();
+			} catch (SQLException e) {
+				Log.error("Failed to update " + counterAgent.toString(), e);
+				try {
+					connection.rollback();
+				} catch (SQLException ex) {
+					Log.error("Failed to rollback transaction", e);
+				}
+				throw new DaoException(e.getMessage(), e);
+			}
+		} catch (SQLException e) {
+			Log.error("Failed to connect to database when updating " + counterAgent.toString(), e);
+			throw new DaoException(e.getMessage(), e);
+		}
 
 	}
 
 	@Override
 	public void delete(Long id) throws DaoException {
+		try (Connection connection = ds.getConnection();
+			 PreparedStatement statement = connection.prepareStatement(DELETE)) {
+			statement.setLong(1, id);
+			try {
+				statement.executeUpdate();
+				connection.commit();
+			} catch (SQLException e) {
+				Log.error("Failed to delete counteragent with id=" + id, e);
+				try {
+					connection.rollback();
+				} catch (SQLException ex) {
+					Log.error("Failed to rollback transaction", e);
+				}
+				throw new DaoException(e.getMessage(), e);
+			}
+		} catch (SQLException e) {
+			Log.error("Failed to connect to database when deleting counteragent with id=" + id, e);
+			throw new DaoException(e.getMessage(), e);
+		}
 
 	}
 }

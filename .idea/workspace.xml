@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e977fcd6-fb3a-4970-9c99-ec23abb80d6e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bank/service/AccountServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bank/service/AccountServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/bank/servlets/AccountsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bank/servlets/AccountsServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/add_money_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/add_money_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/bank/service/AccountServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/bank/service/AccountServiceImplTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +64,7 @@
       <recent name="com.bank.service" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AccountServiceImplTest.depositMoney">
+  <component name="RunManager" selected="Smart Tomcat.BankServlet">
     <configuration name="App" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.bank.App" />
       <module name="Bank" />

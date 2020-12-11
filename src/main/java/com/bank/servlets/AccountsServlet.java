@@ -2,6 +2,7 @@ package com.bank.servlets;
 
 import com.alibaba.fastjson.JSON;
 import com.bank.models.Account;
+import com.bank.models.Card;
 import com.bank.service.AccountServiceException;
 import com.bank.service.AccountServiceImpl;
 import com.bank.utils.DataSourceProvider;
@@ -13,6 +14,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.LinkedList;
+import java.util.List;
 
 
 @WebServlet("/account")
@@ -25,27 +28,33 @@ public class AccountsServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-		resp.setContentType("application/json");
+
 		String command = req.getParameter("command");
 
 		try (PrintWriter writer = resp.getWriter()) {
-			Account account;
 			switch(command) {
 				case "1":
 					break;
 				case "2":
+					Long id  = Long.parseLong(req.getParameter("account_id"));
+					List<Card> list = accountService.getAllCards(id);
+					resp.setContentType("application/json");
+					String jsonList = JSON.toJSONString(list);
+					writer.println(jsonList);
 					break;
 				case "3":
 					Long money = Long.parseLong(req.getParameter("transfer_amount"));
 					String number = req.getParameter("account_number");
 					accountService.depositMoney(new Account(1L, 2L, money, number));
+					resp.setContentType("text/html");
 					break;
 				case "4":
-					account = accountService.getBalance(Long.parseLong(req.getParameter("account_id")));
+					Account account = accountService.getBalance(Long.parseLong(req.getParameter("account_id")));
 					if (account == null) {
 						resp.sendError(404, "Server error/Account not found!");
 					}
 					else {
+						resp.setContentType("application/json");
 						String jsonString = JSON.toJSONString(account.getBalance());
 						writer.println(jsonString);
 					}

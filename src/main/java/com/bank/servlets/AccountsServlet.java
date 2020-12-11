@@ -57,7 +57,7 @@ public class AccountsServlet extends HttpServlet {
 				case "4":
 					Account account = accountService.getBalance(Long.parseLong(req.getParameter("account_id")));
 					if (account == null) {
-						resp.sendError(404, "Server error/Account not found!");
+						resp.sendError(404, "Server error");
 					}
 					else {
 						resp.setContentType("application/json");
@@ -68,7 +68,7 @@ public class AccountsServlet extends HttpServlet {
 			}
 
 		} catch (AccountServiceException e) {
-			System.out.println("server error");
+			resp.sendError(404, "Server error");
 		}
 	}
 }

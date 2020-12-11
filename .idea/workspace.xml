@@ -5,12 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e977fcd6-fb3a-4970-9c99-ec23abb80d6e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/accounts.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/accounts.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/add_money_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/add_money_form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/check_balance_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/check_balance_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/forms.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/forms.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/get_cards_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/get_cards_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/new_card_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/new_card_form.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

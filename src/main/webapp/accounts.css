@@ -2,6 +2,8 @@ html, body {
   height: 50%;
   width: 50%;
   background-color: #5F9900;
+  margin:0 auto;
+
 }
 .container {
   height: 100%;
@@ -28,7 +30,7 @@ a:after {
   bottom: 0;
   right: 1.25rem;
   left: 1.25rem;
-  background-color: #ffffff;
+  background-color: #C2F56E;
   transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
   transform-origin: bottom center;
   z-index: -1;

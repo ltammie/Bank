@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e977fcd6-fb3a-4970-9c99-ec23abb80d6e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/src/main/java/com/bank/servlets/CounterAgentsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bank/servlets/CounterAgentsServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/agents.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/agents.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/new_agent_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/new_agent_form.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

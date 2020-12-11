@@ -2,26 +2,27 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>new card</title>
+    <title>new card</title>
+    <link href="forms.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <form action="account" onsubmit="accounts.html" method="POST">
     <table>
         <tr>
             <td>Account Id: </td>
-            <td><input name="account_id" placeholder="account id" required pattern="^[0-9]*$"/></td>
+            <td><input name="account_id" class="text-input" placeholder="account id" required pattern="^[0-9]*$"/></td>
         </tr>
         <tr>
             <td>Client id: </td>
-            <td><input name="client_id" placeholder="client id" required pattern="^[0-9]*$"/></td>
+            <td><input name="client_id" class="text-input" placeholder="client id" required pattern="^[0-9]*$"/></td>
         </tr>
         <tr>
             <td>Expiration date: </td>
-            <td><input name="expiration_date" placeholder="date" required pattern="^(0[1-9]|1[012])(\/[0-9]{2})"/></td>
+            <td><input name="expiration_date" class="text-input" placeholder="date" required pattern="^(0[1-9]|1[012])(\/[0-9]{2})"/></td>
         </tr>
         <tr>
             <td>Card number: </td>
-            <td><input name="card_number" placeholder="card number" required pattern="^[0-9]{16}"/></td>
+            <td><input name="card_number" class="text-input" placeholder="card number" required pattern="^[0-9]{16}"/></td>
         </tr>
     </table>
     <br><br>

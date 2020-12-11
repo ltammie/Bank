@@ -5,7 +5,7 @@ Java web-service with some bank operations
 # Info
 * language - Java
 * platform - any
-You need maven and any servlet container to compile a web archive and deploy it
+You need maven and any servlet container (ex. Apache Tomcat) to compile a web archive and deploy it
 
 # Usage
 Run:

@@ -1,0 +1,32 @@
+html, body {
+  height: 0%;
+  width: 50%;
+  margin:0 auto;
+}
+
+body {
+ background: linear-gradient( rgba(100, 100, 100, 0.4), rgba(0, 0, 0, 0.4) ), url('back.jpg');
+}
+
+.text-input {
+    padding:5px;
+    border:0;
+    border-radius:10px;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.12);
+    width: 7%;
+}
+
+input[type=submit]{
+      padding:10px;
+      border:none;
+      background-color:#C2F56E;
+      color:#000;
+      font-weight:600;
+      border-radius:5px;
+      width:100%;
+}
+
+input[type=submit]{
+     color:#000;
+     background-color:
+}

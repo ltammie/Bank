@@ -2,11 +2,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>get_balance</title>
+    <title>get_balance</title>
+    <link href="forms.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <form action="account" method="POST">
-    Account ID: <input name="account_id" placeholder="ID" required pattern="^[0-9]*$"/>
+    Account ID: <input name="account_id" class="text-input" placeholder="ID" required pattern="^[0-9]*$"/>
     <br><br>
     <input type="submit" value="Submit" />
     <input type="hidden" name="command" value=4>
